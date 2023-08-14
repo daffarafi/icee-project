@@ -1,4 +1,6 @@
 import { RegisterModule } from '@modules'
 import { NextPage } from 'next'
 
-export const register: NextPage = () => <RegisterModule />
+const Register: NextPage = () => <RegisterModule />
+
+export default Register
