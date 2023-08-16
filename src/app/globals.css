@@ -3,13 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: 'Adam';
-        src: url('../../public/fonts/Adam-Bold.ttf');
-    }
+  @font-face {
+    font-family: 'Adam';
+    src: url('../../public/fonts/Adam-Bold.ttf');
+  }
 
-    @font-face {
-        font-family: 'Sarmandy';
-        src: url('../../public/fonts/SarmadyVF.ttf');
-    }
+  @font-face {
+    font-family: 'Sarmandy';
+    src: url('../../public/fonts/SarmadyVF.ttf');
+  }
 }
