@@ -1,3 +1,4 @@
+import { RegisterContextProvider } from '@contexts'
 import './globals.css'
 import type { Metadata } from 'next'
 
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={'text-white font-Montserrat'}>
-        <main className="min-h-screen bg-[#2c3531]">{children}</main>
+        <main className="min-h-screen bg-[#2c3531]">
+          <RegisterContextProvider>{children}</RegisterContextProvider>
+        </main>
       </body>
     </html>
   )

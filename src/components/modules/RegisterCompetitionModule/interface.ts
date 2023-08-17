@@ -26,12 +26,14 @@ export interface InputTeamLeaderProps {
 export interface InputTeamMemberProps extends membersDataProps {
   index: number
   removeMember: (indexToRemove: number) => void
+  isRemoveButtonShowed: boolean
 }
 
 export interface TeamMemberRegistrationSectionProps
   extends membersDataProps,
     InputTeamLeaderProps,
-    totalTeamMembers {
+    totalTeamMembers,
+    RegisterCompetitionModuleProps {
   addMember: () => void
   removeMember: (indexToRemove: number) => void
 }
@@ -47,6 +49,10 @@ export interface TextInputProps extends InputProps {
   index?: number
   placeholder?: string
   name?: string
+}
+
+export interface NavigateSectionProps {
+  paymentButtonHandler: () => void
 }
 
 export interface FileInputProps extends InputProps {}
