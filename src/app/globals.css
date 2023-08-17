@@ -13,3 +13,14 @@
         src: url('../../public/fonts/SarmadyVF.ttf');
     }
 }
+
+.glow-text {
+    color: #ffcb9a;
+    text-shadow: 0 0 20px #ffcb9a; 
+}
+.vertical-separator {
+    width: 2px;
+    background-color: #ffcb9a;
+    margin: 20px 0; 
+  }
+  

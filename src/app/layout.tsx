@@ -4,6 +4,9 @@ import type { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'ICEE Project',
   description: 'ICEE Project',
+  icons: {
+    icon: ['/favicon.ico?v=4'],
+},
 }
 
 export default function RootLayout({
