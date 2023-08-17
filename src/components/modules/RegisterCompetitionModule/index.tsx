@@ -16,10 +16,6 @@ export const RegisterCompetitionModule: React.FC<
   const [leaderData, setLeaderData] =
     useState<RegistrarProps>(EMPTY_REGISTRAR_DATA)
 
-  const checkData = () => {
-    console.log(leaderData)
-    console.log(membersData)
-  }
   const [totalTeamMembers, setTotalTeamMembers] = useState<number>(2)
 
   const [membersData, setMembersData] = useState<RegistrarProps[]>(
@@ -30,9 +26,11 @@ export const RegisterCompetitionModule: React.FC<
     setMembersData((prevMembers) => [...prevMembers, EMPTY_REGISTRAR_DATA])
   }
 
-  const removeMember = () => {
+  const removeMember = (indexToRemove: number) => {
     setTotalTeamMembers((totalMember) => totalMember - 1)
-    setMembersData((prevMembers) => prevMembers.slice(0, totalTeamMembers - 1))
+    setMembersData((prevMembers) =>
+      prevMembers.filter((_, index) => index !== indexToRemove)
+    )
   }
 
   return (
@@ -49,12 +47,9 @@ export const RegisterCompetitionModule: React.FC<
         setLeaderData={setLeaderData}
         setMembersData={setMembersData}
         totalTeamMembers={totalTeamMembers}
+        addMember={addMember}
+        removeMember={removeMember}
       />
-      <section>
-        <button onClick={checkData}>CheckData</button>
-        <button onClick={addMember}>Add member</button>
-        <button onClick={removeMember}>removRemove member</button>
-      </section>
     </div>
   )
 }

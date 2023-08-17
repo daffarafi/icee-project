@@ -1,6 +1,8 @@
 import { GlowingSpan } from '@elements'
 import React from 'react'
 import { InputTeamLeader, InputTeamMember } from './index'
+import { TeamMemberRegistrationSectionProps } from '../interface'
+import { Plus } from '@icons'
 
 export const TeamMemberRegistrationSection: React.FC<
   TeamMemberRegistrationSectionProps
@@ -10,6 +12,8 @@ export const TeamMemberRegistrationSection: React.FC<
   leaderData,
   setLeaderData,
   totalTeamMembers,
+  addMember,
+  removeMember,
 }) => {
   return (
     <section>
@@ -27,8 +31,15 @@ export const TeamMemberRegistrationSection: React.FC<
             index={index}
             membersData={membersData}
             setMembersData={setMembersData}
+            removeMember={removeMember}
           />
         ))}
+        <button onClick={addMember} className="flex  gap-2 items-center w-fit">
+          <span className="block bg-green-500 p-1">
+            <Plus size="w-10 h-10" />
+          </span>
+          <span>Add Member</span>
+        </button>
       </div>
     </section>
   )

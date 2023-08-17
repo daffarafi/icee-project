@@ -1,12 +1,18 @@
 import React from 'react'
 import { FileInput, TextInput } from '../module-elements'
 import { InputTeamMemberProps } from '../interface'
+import { Minus } from '@icons'
 
 export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
   index,
   membersData,
   setMembersData,
+  removeMember,
 }) => {
+  const removeButtonHandler = () => {
+    removeMember(index)
+  }
+
   const memberInputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const index = parseInt(e.target.getAttribute('data-index') as string)
     const field = e.target.name
@@ -18,7 +24,15 @@ export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
   }
   return (
     <div className="px-6 flex flex-col gap-2">
-      <h3 className="font-bold text-xl">Team Member {index + 1} :</h3>
+      <div className="relative flex  items-center">
+        <button
+          onClick={removeButtonHandler}
+          className="absolute bg-red-500 rounded-full -left-6"
+        >
+          <Minus size={'w-5 h-5'} />
+        </button>
+        <h3 className="font-bold text-xl">Team Member {index + 1} :</h3>
+      </div>
       <TextInput
         value={membersData[index].name}
         setValue={memberInputHandler}

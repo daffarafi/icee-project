@@ -25,12 +25,16 @@ export interface InputTeamLeaderProps {
 
 export interface InputTeamMemberProps extends membersDataProps {
   index: number
+  removeMember: (indexToRemove: number) => void
 }
 
 export interface TeamMemberRegistrationSectionProps
   extends membersDataProps,
     InputTeamLeaderProps,
-    totalTeamMembers {}
+    totalTeamMembers {
+  addMember: () => void
+  removeMember: (indexToRemove: number) => void
+}
 
 export interface InputProps {
   id: string

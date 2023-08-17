@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: 'ICEE Project',
   icons: {
     icon: ['/favicon.ico?v=4'],
-},
+  },
 }
 
 export default function RootLayout({

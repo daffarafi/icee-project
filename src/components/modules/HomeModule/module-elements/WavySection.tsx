@@ -16,4 +16,4 @@ export const WavySection: React.FC = () => (
       ></path>
     </svg>
   </div>
-);
+)
