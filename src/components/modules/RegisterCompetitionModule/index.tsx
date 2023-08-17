@@ -13,24 +13,26 @@ export const RegisterCompetitionModule: React.FC<
   RegisterCompetitionModuleProps
 > = ({ competitionType }) => {
   const [teamName, setTeamName] = useState<string>('')
-  const [totalTeamMembers, setTotalTeamMembers] = useState<number>(2)
   const [leaderData, setLeaderData] =
     useState<RegistrarProps>(EMPTY_REGISTRAR_DATA)
-  const [membersData, setMembersData] = useState<RegistrarProps[]>(
-    Array.from({ length: totalTeamMembers - 1 }, () => EMPTY_REGISTRAR_DATA)
-  )
 
   const checkData = () => {
     console.log(leaderData)
     console.log(membersData)
   }
+  const [totalTeamMembers, setTotalTeamMembers] = useState<number>(2)
 
+  const [membersData, setMembersData] = useState<RegistrarProps[]>(
+    Array.from({ length: totalTeamMembers - 1 }, () => EMPTY_REGISTRAR_DATA)
+  )
   const addMember = () => {
     setTotalTeamMembers((totalMember) => totalMember + 1)
+    setMembersData((prevMembers) => [...prevMembers, EMPTY_REGISTRAR_DATA])
   }
 
   const removeMember = () => {
     setTotalTeamMembers((totalMember) => totalMember - 1)
+    setMembersData((prevMembers) => prevMembers.slice(0, totalTeamMembers - 1))
   }
 
   return (
