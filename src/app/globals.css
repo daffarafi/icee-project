@@ -3,17 +3,16 @@
 @tailwind utilities;
 
 @layer base {
-    @font-face {
-        font-family: 'Adam';
-        src: url('../../public/fonts/Adam-Bold.ttf');
-    }
+  @font-face {
+    font-family: 'Adam';
+    src: url('../../public/fonts/Adam-Bold.ttf');
+  }
 
-    @font-face {
-        font-family: 'Sarmandy';
-        src: url('../../public/fonts/SarmadyVF.ttf');
-    }
+  @font-face {
+    font-family: 'Sarmandy';
+    src: url('../../public/fonts/SarmadyVF.ttf');
+  }
 }
-
 .glow-text {
     color: #ffcb9a;
     text-shadow: 0 0 20px #ffcb9a; 
@@ -23,4 +22,3 @@
     background-color: #ffcb9a;
     margin: 20px 0; 
   }
-  

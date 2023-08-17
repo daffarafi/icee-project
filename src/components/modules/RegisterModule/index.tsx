@@ -1,5 +1,9 @@
 import React from 'react'
+// import {HeroSection, FAQSection} from './sections
+// import {} from './module-elements'
 
 export const RegisterModule: React.FC = () => {
-  return <section className=" text-3xl font-thin ">Adam</section>
+  // TODO: Write module's logic
+
+  return <>Ini Register</>
 }
