@@ -2,23 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  @font-face {
-    font-family: 'Adam';
-    src: url('../../public/fonts/Adam-Bold.ttf');
-  }
 
-  @font-face {
-    font-family: 'Sarmandy';
-    src: url('../../public/fonts/SarmadyVF.ttf');
+
+
+@keyframes scroll {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
   }
 }
-.glow-text {
-    color: #ffcb9a;
-    text-shadow: 0 0 20px #ffcb9a; 
+
+.animate-scroll {
+  animation: scroll 10s linear infinite;
 }
-.vertical-separator {
-    width: 2px;
-    background-color: #ffcb9a;
-    margin: 20px 0; 
-  }
+html {
+    scroll-behavior: smooth;
+}
+
+

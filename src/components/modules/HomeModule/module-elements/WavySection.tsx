@@ -1,9 +1,12 @@
-export const WavySection: React.FC = () => (
+import React from 'react';
+import { WavySectionProps } from '../interface';
+
+export const WavySection: React.FC<WavySectionProps> = ({ color }) => (
   <div className="w-full">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 1440 320"
-      className="fill-current text-[#1c6c6e]"
+      fill={color}
     >
       <path
         fillOpacity="1"
