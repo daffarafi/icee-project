@@ -19,4 +19,4 @@ export const WavySection: React.FC<WavySectionProps> = ({ color }) => (
       ></path>
     </svg>
   </div>
-);
+)

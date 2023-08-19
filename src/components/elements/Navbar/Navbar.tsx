@@ -5,14 +5,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 export const Navbar: React.FC = () => {
-    const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const [showMobileMenu, setShowMobileMenu] = useState(false)
 
-    const toggleMobileMenu = () => {
-        setShowMobileMenu(!showMobileMenu);
-    };
-    const closeMobileMenu = () => {
-        setShowMobileMenu(false);
-    };
+  const toggleMobileMenu = () => {
+    setShowMobileMenu(!showMobileMenu)
+  }
+  const closeMobileMenu = () => {
+    setShowMobileMenu(false)
+  }
 
     return (
         <nav className="flex fixed z-10 md:pb-1 flex-row md:flex-row w-full bg-[#cee3db] justify-between">

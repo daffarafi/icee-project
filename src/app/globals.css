@@ -13,6 +13,7 @@
     left: -100%;
   }
 }
+<<<<<<< HEAD
 
 .animate-scroll {
   animation: scroll 10s linear infinite;
@@ -22,3 +23,14 @@ html {
 }
 
 
+=======
+.glow-text {
+  color: #ffcb9a;
+  text-shadow: 0 0 20px #ffcb9a;
+}
+.vertical-separator {
+  width: 2px;
+  background-color: #ffcb9a;
+  margin: 20px 0;
+}
+>>>>>>> 741f36f3022945cf8fc39a3e7e01cc844316344f
