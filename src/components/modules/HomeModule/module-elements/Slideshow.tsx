@@ -1,16 +1,16 @@
-"use client"
-import React, { useState, useEffect, ReactNode } from 'react';
+'use client'
+import React, { useState, useEffect, ReactNode } from 'react'
 
 const Slideshow = ({ slides }: { slides: ReactNode[] }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+  const [currentSlide, setCurrentSlide] = useState(0)
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length);
-    }, 3000);
+      setCurrentSlide((prevSlide) => (prevSlide + 1) % slides.length)
+    }, 3000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="slideshow relative overflow-hidden">
@@ -27,7 +27,7 @@ const Slideshow = ({ slides }: { slides: ReactNode[] }) => {
         ))}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Slideshow;
+export default Slideshow

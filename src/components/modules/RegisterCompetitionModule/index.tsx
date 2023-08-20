@@ -92,7 +92,7 @@ export const RegisterCompetitionModule: React.FC<
   }
 
   return (
-    <div className="container flex flex-col gap-6">
+    <div className="container py-28 flex flex-col gap-6">
       <Header competitionType={competitionType} />
       <TeamRegistrationSection
         setTeamName={setTeamName}

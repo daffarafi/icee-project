@@ -14,20 +14,20 @@ export const RegisterModule: React.FC = () => {
           href={'/register/bcc'}
           className="flex flex-col items-center group"
         >
-          <span className="text-9xl -mb-8 font-Sarmandy tracking-[0.2em] font-extrabold">
+          <span className="text-9xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
             <GlowingSpan color="blue">BCC</GlowingSpan>
           </span>
           <span className="text-[#c6e2de]">3 Members</span>
         </Link>
         <Link href={'/register/bridge'} className="flex flex-col items-center">
-          <span className="text-9xl -mb-8 font-Sarmandy tracking-[0.2em] font-extrabold">
+          <span className="text-9xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
             <GlowingSpan color="blue">BRIDGE</GlowingSpan>
           </span>
           <span className="text-[#c6e2de]">3-4 Members </span>
         </Link>
       </div>
       <Link href={'/register/cetc'} className="flex flex-col items-center">
-        <span className="text-9xl -mb-8 font-Sarmandy tracking-[0.2em] font-extrabold">
+        <span className="text-9xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
           <GlowingSpan color="blue">CETC</GlowingSpan>
         </span>
         <span className="text-[#c6e2de]">2-3 Members </span>

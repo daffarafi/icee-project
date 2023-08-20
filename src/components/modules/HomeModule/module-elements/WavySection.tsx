@@ -1,13 +1,9 @@
-import React from 'react';
-import { WavySectionProps } from '../interface';
+import React from 'react'
+import { WavySectionProps } from '../interface'
 
 export const WavySection: React.FC<WavySectionProps> = ({ color }) => (
   <div className="w-full">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 1440 320"
-      fill={color}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" fill={color}>
       <path
         fillOpacity="1"
         d="M0,192L40,186.7C80,181,160,171,240,160C320,149,

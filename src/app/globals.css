@@ -2,9 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-
 @keyframes scroll {
   0% {
     left: 0;
@@ -13,17 +10,14 @@
     left: -100%;
   }
 }
-<<<<<<< HEAD
 
 .animate-scroll {
   animation: scroll 10s linear infinite;
 }
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
-
-=======
 .glow-text {
   color: #ffcb9a;
   text-shadow: 0 0 20px #ffcb9a;
@@ -33,4 +27,3 @@ html {
   background-color: #ffcb9a;
   margin: 20px 0;
 }
->>>>>>> 741f36f3022945cf8fc39a3e7e01cc844316344f

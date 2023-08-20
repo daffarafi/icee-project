@@ -1,8 +1,8 @@
-import React from 'react';
-import { GlowingSpan } from '@elements';
-import { HiOutlineLightBulb } from 'react-icons/hi';
-import { AiFillSetting } from 'react-icons/ai';
-import { BsPencilFill } from 'react-icons/bs';
+import React from 'react'
+import { GlowingSpan } from '@elements'
+import { HiOutlineLightBulb } from 'react-icons/hi'
+import { AiFillSetting } from 'react-icons/ai'
+import { BsPencilFill } from 'react-icons/bs'
 
 export const VisionSection: React.FC = () => (
   <section className="px-5 sm:px-10 pt-16 bg-[#1c6c6e] sm:pt-10 w-full h-[130vh] md:h-[80vh]">
@@ -14,25 +14,25 @@ export const VisionSection: React.FC = () => (
         <div className="flex justify-center mt-14 text-center">
           <div className="flex flex-col sm:flex-row justify-center gap-10">
             <div className="flex flex-col gap-8 items-center mt-4 sm:w-1/3">
-              <p className="text-2xl sm:text-3xl px-4">
-                INNOVATE
-              </p>
+              <p className="text-2xl sm:text-3xl px-4">INNOVATE</p>
               <HiOutlineLightBulb className="text-7xl" />
-              <p>INNOVATION is the ability to see change as an opportunity, not a threat.</p>
+              <p>
+                INNOVATION is the ability to see change as an opportunity, not a
+                threat.
+              </p>
             </div>
 
             <div className="flex flex-col gap-8 items-center mt-4 sm:w-1/3">
-              <p className="text-2xl sm:text-3xl px-4">
-                COLLABORATE
-              </p>
+              <p className="text-2xl sm:text-3xl px-4">COLLABORATE</p>
               <AiFillSetting className="text-7xl" />
-              <p>Coming together is a beginning, keeping together is a progress, working TOGETHER is success.</p>
+              <p>
+                Coming together is a beginning, keeping together is a progress,
+                working TOGETHER is success.
+              </p>
             </div>
 
             <div className="flex flex-col gap-8 items-center mt-4 sm:w-1/3">
-              <p className="text-2xl sm:text-3xl px-4">
-                CREATE
-              </p>
+              <p className="text-2xl sm:text-3xl px-4">CREATE</p>
               <BsPencilFill className="text-7xl" />
               <p>Leaders don’t create followers, they CREATE more leaders.</p>
             </div>
@@ -41,4 +41,4 @@ export const VisionSection: React.FC = () => (
       </div>
     </div>
   </section>
-);
+)
