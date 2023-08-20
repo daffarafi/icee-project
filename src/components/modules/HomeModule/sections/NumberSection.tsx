@@ -4,23 +4,23 @@ import { WavySection } from '../module-elements/WavySection';
 import Slideshow from '../module-elements/Slideshow';
 export const NumberSection: React.FC = () => {
   const slides = [
-    <div className="flex flex-col gap-4">
+    <div key={0} className="flex flex-col gap-4">
       <p className='text-5xl'>13000+</p>
       <p>POTENCIAL AUDIENCES</p>
     </div>,
-    <div className="flex flex-col gap-4">
+    <div key={1} className="flex flex-col gap-4">
       <p className='text-5xl'>13000+</p>
       <p>SPONSOR AND MEDIA PARTNER</p>
     </div>,
-    <div className="flex flex-col gap-4">
+    <div key={2} className="flex flex-col gap-4">
       <p className='text-5xl'>13000+</p>
       <p>COMPETITION PARTICIPANT</p>
     </div>,
-    <div className="flex flex-col gap-4">
+    <div key={3} className="flex flex-col gap-4">
       <p className='text-5xl'>13000+</p>
       <p>EVENT PARTICIPANT</p>
     </div>,
-    <div className="flex flex-col gap-4">
+    <div key={4} className="flex flex-col gap-4">
       <p className='text-5xl'>13000+</p>
       <p>STAFF PARTICIPATED</p>
     </div>

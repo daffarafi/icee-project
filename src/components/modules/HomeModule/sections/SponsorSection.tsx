@@ -34,7 +34,7 @@ export const SponsorSection: React.FC = () => {
               <div className="flex flex-wrap">
                 {ImageSponsor.map((item, index) => (
 
-                  <div className="w-[50%]">
+                  <div className="w-[50%]" key={index}>
                     <Image
                       src={item}
                       alt="Sponsor Logo"
@@ -58,7 +58,7 @@ export const SponsorSection: React.FC = () => {
               <div className="flex flex-wrap">
                 {ImagePartner.map((item, index) => (
 
-                  <div className="w-[50%]">
+                  <div className="w-[50%]" key={index}>
                     <Image
                       src={item}
                       alt="Sponsor Logo"
