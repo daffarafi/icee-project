@@ -8,6 +8,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   value,
   name,
   index,
+  type = 'text',
   setValue,
 }) => {
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -15,19 +16,23 @@ export const TextInput: React.FC<TextInputProps> = ({
   }
 
   return (
-    <div className="flex w-full">
-      <label htmlFor={id} className="w-2/6 whitespace-nowrap">
+    <div className="flex flex-col gap-1 lg:flex-row w-full">
+      <label
+        htmlFor={id}
+        className="w-2/6 text-sm lg:text-base whitespace-nowrap"
+      >
         {label}
       </label>
       <input
         data-index={index}
         id={id}
         name={name}
-        type={'text'}
+        type={type}
         className="w-full text-black px-2"
         placeholder={placeholder}
         value={value}
         onChange={inputHandler}
+        required
       />
     </div>
   )

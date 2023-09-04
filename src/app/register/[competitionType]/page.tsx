@@ -2,12 +2,12 @@ import { RegisterCompetitionModule } from '@modules'
 import { PageNotFoundError } from 'next/dist/shared/lib/utils'
 import { notFound } from 'next/navigation'
 
-const COMPE_TYPE = ['bridge', 'bcc', 'cetc']
+const COMPE_TYPE = ['bridge', 'bcc', 'tender']
 
 const RegisterCompetition = ({
   params,
 }: {
-  params: { competitionType: 'bridge' | 'bcc' | 'cetc' }
+  params: { competitionType: 'bridge' | 'bcc' | 'tender' }
 }) => {
   try {
     const { competitionType } = params

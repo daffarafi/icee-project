@@ -1,34 +1,25 @@
 import { GlowingSpan } from '@elements'
 import Link from 'next/link'
 import React from 'react'
-// import {HeroSection, FAQSection} from './sections
-// import {} from './module-elements'
 
 export const RegisterModule: React.FC = () => {
-  // TODO: Write module's logic
-
   return (
-    <section className="flex flex-col gap-10 justify-center items-center min-h-screen">
-      <div className="grid grid-cols-2 gap-10">
-        <Link
-          href={'/register/bcc'}
-          className="flex flex-col items-center group"
-        >
-          <span className="text-9xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
-            <GlowingSpan color="blue">BCC</GlowingSpan>
-          </span>
-          <span className="text-[#c6e2de]">3 Members</span>
-        </Link>
-        <Link href={'/register/bridge'} className="flex flex-col items-center">
-          <span className="text-9xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
-            <GlowingSpan color="blue">BRIDGE</GlowingSpan>
-          </span>
-          <span className="text-[#c6e2de]">3-4 Members </span>
-        </Link>
-      </div>
-      <Link href={'/register/cetc'} className="flex flex-col items-center">
-        <span className="text-9xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
-          <GlowingSpan color="blue">CETC</GlowingSpan>
+    <section className="flex flex-col gap-10 justify-center items-center min-h-screen py-44">
+      <Link href={'/register/bridge'} className="flex flex-col items-center">
+        <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
+          <GlowingSpan color="blue">BRIDGE</GlowingSpan>
+        </span>
+        <span className="text-[#c6e2de]">3 Members </span>
+      </Link>
+      <Link href={'/register/bcc'} className="flex flex-col items-center group">
+        <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
+          <GlowingSpan color="blue">BCC</GlowingSpan>
+        </span>
+        <span className="text-[#c6e2de]">3-4 Members</span>
+      </Link>
+      <Link href={'/register/tender'} className="flex flex-col items-center">
+        <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
+          <GlowingSpan color="blue">TENDER</GlowingSpan>
         </span>
         <span className="text-[#c6e2de]">2-3 Members </span>
       </Link>

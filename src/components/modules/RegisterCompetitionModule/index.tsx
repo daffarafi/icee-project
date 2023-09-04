@@ -1,11 +1,16 @@
 'use client'
 
 import React, { useState } from 'react'
-import { RegisterCompetitionModuleProps, RegistrarProps } from './interface'
-import { EMPTY_REGISTRAR_DATA } from './constant'
+import {
+  PaymentDataProps,
+  RegisterCompetitionModuleProps,
+  RegistrarProps,
+} from './interface'
+import { EMPTY_PAYMENT_DATA, EMPTY_REGISTRAR_DATA } from './constant'
 import {
   Header,
   NavigateSection,
+  PaymentSection,
   TeamMemberRegistrationSection,
   TeamRegistrationSection,
 } from './sections'
@@ -14,7 +19,8 @@ import { useRegisterContext } from '@contexts'
 export const RegisterCompetitionModule: React.FC<
   RegisterCompetitionModuleProps
 > = ({ competitionType }) => {
-  const { setTeamData, teamData } = useRegisterContext()
+  const { teamData } = useRegisterContext()
+  //   const { setTeamData, teamData } = useRegisterContext()
 
   const [teamName, setTeamName] = useState<string>(
     teamData ? teamData.teamName : ''
@@ -36,6 +42,10 @@ export const RegisterCompetitionModule: React.FC<
       ? teamData.members
       : Array.from({ length: totalTeamMembers - 1 }, () => EMPTY_REGISTRAR_DATA)
   )
+
+  const [paymentData, setPaymentData] =
+    useState<PaymentDataProps>(EMPTY_PAYMENT_DATA)
+
   const addMember = () => {
     switch (competitionType) {
       case 'bcc':
@@ -48,7 +58,7 @@ export const RegisterCompetitionModule: React.FC<
           return
         }
         break
-      case 'cetc':
+      case 'tender':
         if (totalTeamMembers === 3) {
           return
         }
@@ -70,7 +80,7 @@ export const RegisterCompetitionModule: React.FC<
           return
         }
         break
-      case 'cetc':
+      case 'tender':
         if (totalTeamMembers === 2) {
           return
         }
@@ -82,34 +92,35 @@ export const RegisterCompetitionModule: React.FC<
     )
   }
 
-  const paymentButtonHandler = () => {
-    setTeamData({
-      teamName,
-      totalTeamMembers,
-      teamLeader: leaderData,
-      members: membersData,
-    })
+  const submitData = () => {
+    //   setTeamData({})
   }
 
   return (
     <div className="container py-28 flex flex-col gap-6">
       <Header competitionType={competitionType} />
-      <TeamRegistrationSection
-        setTeamName={setTeamName}
-        teamName={teamName}
-        totalTeamMembers={totalTeamMembers}
-      />
-      <TeamMemberRegistrationSection
-        competitionType={competitionType}
-        leaderData={leaderData}
-        membersData={membersData}
-        setLeaderData={setLeaderData}
-        setMembersData={setMembersData}
-        totalTeamMembers={totalTeamMembers}
-        addMember={addMember}
-        removeMember={removeMember}
-      />
-      <NavigateSection paymentButtonHandler={paymentButtonHandler} />
+      <form onSubmit={submitData} className="flex flex-col gap-6">
+        <TeamRegistrationSection
+          setTeamName={setTeamName}
+          teamName={teamName}
+          totalTeamMembers={totalTeamMembers}
+        />
+        <TeamMemberRegistrationSection
+          competitionType={competitionType}
+          leaderData={leaderData}
+          membersData={membersData}
+          setLeaderData={setLeaderData}
+          setMembersData={setMembersData}
+          totalTeamMembers={totalTeamMembers}
+          addMember={addMember}
+          removeMember={removeMember}
+        />
+        <PaymentSection
+          paymentData={paymentData}
+          setPaymentData={setPaymentData}
+        />
+        <NavigateSection />
+      </form>
     </div>
   )
 }

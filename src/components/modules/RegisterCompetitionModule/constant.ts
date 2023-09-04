@@ -8,4 +8,11 @@ export const EMPTY_REGISTRAR_DATA = {
   ktm: null,
   photo: null,
   activeStudentProof: null,
+  twibbon: null,
+}
+
+export const EMPTY_PAYMENT_DATA = {
+  referralCode: '',
+  paymentMethod: '',
+  paymentProof: null,
 }

@@ -2,6 +2,7 @@ import { GlowingSpan } from '@elements'
 import React from 'react'
 import { TextInput } from '../module-elements'
 import { TeamRegistrationSectionProps } from '../interface'
+import Link from 'next/link'
 
 export const TeamRegistrationSection: React.FC<
   TeamRegistrationSectionProps
@@ -12,7 +13,18 @@ export const TeamRegistrationSection: React.FC<
 
   return (
     <section className="flex flex-col gap-3">
-      <h2 className="font-Sarmandy text-3xl font-extrabold tracking-[0.25em]">
+      <span className="italic">
+        *Silahkan cek{' '}
+        <Link
+          className="text-blue-400 underline"
+          href={'https://bit.ly/TORUmumIBDCICEE2024'}
+          target="_blank"
+        >
+          link ini
+        </Link>{' '}
+        untuk melihat Terms of Reference
+      </span>
+      <h2 className="font-Sarmandy text-md text-center  lg:text-start sm:text-lg md:text-2xl lg:text-3xl font-extrabold tracking-[0.25em]">
         <GlowingSpan color="yellow">TEAM REGISTRATION</GlowingSpan>
       </h2>
       <div className="px-6 flex flex-col gap-2">
@@ -23,9 +35,11 @@ export const TeamRegistrationSection: React.FC<
           value={teamName}
           setValue={setValue}
         />
-        <div className="flex w-full">
-          <span className="w-2/6 whitespace-nowrap">Total Team Members</span>
-          <span className="w-full">{totalTeamMembers}</span>
+        <div className="flex gap-2 w-full">
+          <span className="lg:w-2/6 whitespace-nowrap">
+            Total Team Members :{' '}
+          </span>
+          <span className="lg:w-full">{totalTeamMembers}</span>
         </div>
       </div>
     </section>

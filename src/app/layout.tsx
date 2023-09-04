@@ -2,6 +2,7 @@ import { RegisterContextProvider } from '@contexts'
 import './globals.css'
 import type { Metadata } from 'next'
 import { Footer, Navbar } from '@elements'
+import { Toaster } from 'react-hot-toast'
 
 export const metadata: Metadata = {
   title: 'ICEE Project',
@@ -24,6 +25,7 @@ export default function RootLayout({
           <RegisterContextProvider>{children}</RegisterContextProvider>
         </main>
         <Footer />
+        <Toaster />
       </body>
     </html>
   )

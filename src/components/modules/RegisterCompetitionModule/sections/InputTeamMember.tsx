@@ -2,6 +2,7 @@ import React from 'react'
 import { FileInput, TextInput } from '../module-elements'
 import { InputTeamMemberProps } from '../interface'
 import { Minus } from '@icons'
+import Link from 'next/link'
 
 export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
   index,
@@ -23,6 +24,15 @@ export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
     updatedMember[index] = { ...updatedMember[index], [field]: value }
     setMembersData(updatedMember)
   }
+
+  const memberInputFileHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const field = e.target.name
+    const files = e.target.files
+    if (!files) return
+    const updatedMember = [...membersData]
+    updatedMember[index] = { ...updatedMember[index], [field]: files[0] }
+    setMembersData(updatedMember)
+  }
   return (
     <div className="px-6 flex flex-col gap-2">
       <div className="relative flex  items-center">
@@ -34,7 +44,9 @@ export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
             <Minus size={'w-5 h-5'} />
           </button>
         )}
-        <h3 className="font-bold text-xl">Team Member {index + 1} :</h3>
+        <h3 className="font-bold text-base lg:text-xl">
+          Team Member {index + 1} :
+        </h3>
       </div>
       <TextInput
         value={membersData[index].name}
@@ -73,6 +85,7 @@ export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
         setValue={memberInputHandler}
         index={index}
         label={`Email`}
+        type="email"
         name="email"
         id={`member${index + 1}Email`}
       />
@@ -84,12 +97,40 @@ export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
         name="address"
         id={`member${index + 1}Address`}
       />
-      <FileInput label={`Student ID (KTM)`} id={`member${index + 1}Ktm`} />
       <FileInput
+        name="ktm"
+        setValue={memberInputFileHandler}
+        label={`Student ID (KTM)`}
+        id={`member${index + 1}Ktm`}
+      />
+      <FileInput
+        name="activeStudentProof"
+        setValue={memberInputFileHandler}
         label={`Active Student Proof`}
         id={`member${index + 1}ActiveStudentProof`}
       />
-      <FileInput label={`3x4 Photo`} id={`member${index + 1}Photo`} />
+      <FileInput
+        name="photo"
+        setValue={memberInputFileHandler}
+        label={`3x4 Photo`}
+        id={`member${index + 1}Photo`}
+      />
+      <FileInput
+        name="twibbon"
+        setValue={memberInputFileHandler}
+        label={`Twibbon`}
+        id={`member${index + 1}Twibbon`}
+      />
+      <span className="italic">
+        *Silahkan cek{' '}
+        <Link
+          className="underline text-blue-400"
+          href={'http://bit.ly/TwibbonCompeICEE2024'}
+        >
+          link ini
+        </Link>{' '}
+        untuk melihat template twibbon
+      </span>
     </div>
   )
 }

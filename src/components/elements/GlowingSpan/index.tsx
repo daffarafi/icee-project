@@ -3,7 +3,7 @@ import { GlowingSpanProps } from './interface'
 
 export const GlowingSpan: React.FC<GlowingSpanProps> = ({
   children,
-  className,
+  className = '',
   color,
   ...props
 }) => {

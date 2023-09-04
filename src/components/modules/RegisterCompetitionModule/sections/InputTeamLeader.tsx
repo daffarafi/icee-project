@@ -1,6 +1,7 @@
 import React from 'react'
 import { FileInput, TextInput } from '../module-elements'
 import { InputTeamLeaderProps } from '../interface'
+import Link from 'next/link'
 
 export const InputTeamLeader: React.FC<InputTeamLeaderProps> = ({
   setLeaderData,
@@ -15,9 +16,19 @@ export const InputTeamLeader: React.FC<InputTeamLeaderProps> = ({
     }))
   }
 
+  const leaderInputFileHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const field = e.target.name
+    const files = e.target.files
+    if (!files) return
+    setLeaderData({
+      ...leaderData,
+      [field]: files[0],
+    })
+  }
+
   return (
     <div className="px-6 flex flex-col gap-2">
-      <h3 className="font-bold text-xl">Team Leader :</h3>
+      <h3 className="font-bold text-base lg:text-xl">Team Leader :</h3>
       <TextInput
         setValue={leaderInputHandler}
         label="Name"
@@ -51,6 +62,7 @@ export const InputTeamLeader: React.FC<InputTeamLeaderProps> = ({
         value={leaderData.email}
         label="Email"
         name={'email'}
+        type="email"
         id="leaderEmail"
       />
       <TextInput
@@ -60,9 +72,41 @@ export const InputTeamLeader: React.FC<InputTeamLeaderProps> = ({
         name={'address'}
         id="leaderAddress"
       />
-      <FileInput label="Student ID (KTM)" id="leaderKtm" />
-      <FileInput label="Active Student Proof" id="leaderActiveStudentProof" />
-      <FileInput label="3x4 Photo" id="leaderPhoto" />
+      <FileInput
+        name="ktm"
+        setValue={leaderInputHandler}
+        label="Student ID (KTM)"
+        id="leaderKtm"
+      />
+      <FileInput
+        setValue={leaderInputFileHandler}
+        name="activeStudentProof"
+        label="Active Student Proof"
+        id="leaderActiveStudentProof"
+      />
+      <FileInput
+        setValue={leaderInputFileHandler}
+        name="photo"
+        label="3x4 Photo"
+        id="leaderPhoto"
+      />
+      <FileInput
+        setValue={leaderInputFileHandler}
+        name="twibbon"
+        label="Twibbon"
+        id="leaderTwibbon"
+      />
+      <span className="italic">
+        *Silahkan cek{' '}
+        <Link
+          className="underline text-blue-400"
+          href={'http://bit.ly/TwibbonCompeICEE2024'}
+          target="_blank"
+        >
+          link ini
+        </Link>{' '}
+        untuk melihat template twibbon
+      </span>
     </div>
   )
 }

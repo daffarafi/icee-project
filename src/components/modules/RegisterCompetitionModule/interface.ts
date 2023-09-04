@@ -1,5 +1,5 @@
 export interface RegisterCompetitionModuleProps {
-  competitionType: 'bridge' | 'bcc' | 'cetc'
+  competitionType: 'bridge' | 'bcc' | 'tender'
 }
 
 export interface HeaderProps extends RegisterCompetitionModuleProps {}
@@ -41,18 +41,15 @@ export interface TeamMemberRegistrationSectionProps
 export interface InputProps {
   id: string
   label: string
+  name?: string
+  setValue: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export interface TextInputProps extends InputProps {
-  value: string
-  setValue: (e: React.ChangeEvent<HTMLInputElement>) => void
   index?: number
+  value: string | undefined
   placeholder?: string
-  name?: string
-}
-
-export interface NavigateSectionProps {
-  paymentButtonHandler: () => void
+  type?: 'email' | 'text'
 }
 
 export interface FileInputProps extends InputProps {}
@@ -67,4 +64,16 @@ export interface RegistrarProps {
   ktm: File | null
   activeStudentProof: File | null
   photo: File | null
+  twibbon: File | null
+}
+
+export interface PaymentSectionProps {
+  paymentData: PaymentDataProps
+  setPaymentData: React.Dispatch<React.SetStateAction<PaymentDataProps>>
+}
+
+export interface PaymentDataProps {
+  referralCode: string
+  paymentMethod: string
+  paymentProof: File | null
 }

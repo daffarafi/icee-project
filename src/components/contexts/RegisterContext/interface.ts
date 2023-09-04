@@ -1,3 +1,4 @@
+import { FormEventHandler } from 'react'
 import { RegistrarProps } from 'src/components/modules/RegisterCompetitionModule/interface'
 
 export interface teamDataProps {
@@ -9,7 +10,7 @@ export interface teamDataProps {
 
 export interface RegisterContextProps {
   teamData: teamDataProps | null
-  setTeamData: React.Dispatch<React.SetStateAction<teamDataProps | null>>
+  setTeamData: FormEventHandler<HTMLFormElement>
 }
 
 export interface RegisterContextProviderProps {
