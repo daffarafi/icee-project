@@ -180,13 +180,14 @@ export const RegisterContextProvider: React.FC<
       //   method: 'post',
       //   body: bodyTeam,
       // })
-      const response = await fetch(
-        `https://iceeitb-backend.vercel.app/register`,
-        {
-          method: 'post',
-          body,
-        }
-      )
+
+      // const response = await fetch(
+      //   `https://iceeitb-backend.vercel.app/register`,
+      //   {
+      //     method: 'post',
+      //     body,
+      //   }
+      // )
 
       // const responseJson = await response.json()
 
