@@ -180,11 +180,13 @@ export const RegisterContextProvider: React.FC<
         )
       }
 
-      console.log(body.get('paymentProof'))
-      const response = await fetch(`http://localhost:5000/register`, {
-        method: 'post',
-        body,
-      })
+      const response = await fetch(
+        `https://iceeitb-backend.vercel.app/register`,
+        {
+          method: 'post',
+          body,
+        }
+      )
 
       const responseJson = await response.json()
 
