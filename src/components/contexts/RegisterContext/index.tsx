@@ -61,7 +61,7 @@ export const RegisterContextProvider: React.FC<
 
       const jsonFile = {
         teamName: teamName,
-        competition: competition,
+        competition: competition.toUpperCase(),
         totalPayment: 225000,
         paymentMethod: paymentData.paymentMethod,
         referralCode: paymentData.referralCode,
