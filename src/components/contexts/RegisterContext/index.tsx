@@ -121,11 +121,11 @@ export const RegisterContextProvider: React.FC<
       const responseJson = await response.json()
       if (responseJson.message) {
         alert(responseJson.message)
+        setSuccess(true)
       } else {
         alert(responseJson.error)
+        setSuccess(false)
       }
-
-      setSuccess(true)
     } catch (err) {
       setSuccess(false)
     } finally {
