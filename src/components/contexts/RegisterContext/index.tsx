@@ -94,12 +94,14 @@ export const RegisterContextProvider: React.FC<
       )
 
       const responseJson = await response.json()
+
       if (responseJson.statusCode !== 201) {
         throw new Error(responseJson.message)
       }
       setSuccess(true)
     } catch (err: any) {
       alert(err.message)
+
       setSuccess(false)
     } finally {
       setLoading(false)
