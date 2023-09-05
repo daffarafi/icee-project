@@ -11,6 +11,8 @@ export interface teamDataProps {
 export interface RegisterContextProps {
   teamData: teamDataProps | null
   setTeamData: FormEventHandler<HTMLFormElement>
+  loading: boolean
+  success: boolean
 }
 
 export interface RegisterContextProviderProps {

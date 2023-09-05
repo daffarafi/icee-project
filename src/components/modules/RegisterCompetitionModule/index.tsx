@@ -13,13 +13,14 @@ import {
   PaymentSection,
   TeamMemberRegistrationSection,
   TeamRegistrationSection,
+  Thanks,
 } from './sections'
 import { useRegisterContext } from '@contexts'
 
 export const RegisterCompetitionModule: React.FC<
   RegisterCompetitionModuleProps
 > = ({ competitionType }) => {
-  const { teamData } = useRegisterContext()
+  const { teamData, loading, success } = useRegisterContext()
   //   const { setTeamData, teamData } = useRegisterContext()
 
   const [teamName, setTeamName] = useState<string>(
@@ -96,6 +97,8 @@ export const RegisterCompetitionModule: React.FC<
     //   setTeamData({})
   }
 
+  if (success) return <Thanks />
+
   return (
     <div className="container py-28 flex flex-col gap-6">
       <Header competitionType={competitionType} />
@@ -121,6 +124,11 @@ export const RegisterCompetitionModule: React.FC<
         />
         <NavigateSection />
       </form>
+      {loading && (
+        <div className="fixed top-0 left-0 bg-white/40 w-screen h-screen flex justify-center items-center">
+          <div className="w-20 h-20  rounded-full border-8 border-gray-700 border-l-transparent animate-spin" />
+        </div>
+      )}
     </div>
   )
 }

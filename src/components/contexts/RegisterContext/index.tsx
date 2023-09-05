@@ -17,23 +17,34 @@ export const RegisterContextProvider: React.FC<
 > = ({ children }) => {
   //   const router = useRouter()
   const [teamData, setTeamDataState] = useState<teamDataProps | null>(null)
+  const [loading, setLoading] = useState<boolean>(false)
+  const [success, setSuccess] = useState<boolean>(false)
 
   const setTeamData = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    setTeamDataState(null)
-    // const form = e.target as HTMLFormElement
+    try {
+      e.preventDefault()
+      setLoading(true)
+      setTeamDataState(null)
+      // const form = e.target as HTMLFormElement
 
-    // const teamLeader = {
-    //     members: form.
-    // } as teamDataProps
+      // const teamLeader = {
+      //     members: form.
+      // } as teamDataProps
 
-    // setTeamDataState({teamLeader:})
-    // router.push('/payment')
+      // setTeamDataState({teamLeader:})
+      // router.push('/payment')}
+      setSuccess(true)
+    } catch (err) {
+      setSuccess(false)
+    } finally {
+      setLoading(false)
+    }
   }
-
   const contextValue = {
     teamData,
     setTeamData,
+    loading,
+    success,
   }
 
   return (
