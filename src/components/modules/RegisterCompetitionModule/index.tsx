@@ -20,8 +20,7 @@ import { useRegisterContext } from '@contexts'
 export const RegisterCompetitionModule: React.FC<
   RegisterCompetitionModuleProps
 > = ({ competitionType }) => {
-  const { teamData, loading, success } = useRegisterContext()
-  //   const { setTeamData, teamData } = useRegisterContext()
+  const { teamData, setTeamData, loading, success } = useRegisterContext()
 
   const [teamName, setTeamName] = useState<string>(
     teamData ? teamData.teamName : ''
@@ -93,16 +92,24 @@ export const RegisterCompetitionModule: React.FC<
     )
   }
 
-  const submitData = () => {
-    //   setTeamData({})
-  }
-
   if (success) return <Thanks />
 
   return (
     <div className="container py-28 flex flex-col gap-6">
       <Header competitionType={competitionType} />
-      <form onSubmit={submitData} className="flex flex-col gap-6">
+      <form
+        onSubmit={(e: React.FormEvent<HTMLFormElement>) => {
+          e.preventDefault()
+          setTeamData(
+            teamName,
+            competitionType,
+            leaderData,
+            membersData,
+            paymentData
+          )
+        }}
+        className="flex flex-col gap-6"
+      >
         <TeamRegistrationSection
           setTeamName={setTeamName}
           teamName={teamName}
@@ -121,6 +128,18 @@ export const RegisterCompetitionModule: React.FC<
         <PaymentSection
           paymentData={paymentData}
           setPaymentData={setPaymentData}
+        />
+        <input
+          type="text"
+          className="hidden"
+          name={'competition'}
+          defaultValue={competitionType}
+        />
+        <input
+          type="text"
+          className="hidden"
+          name={'totalTeamMembers'}
+          defaultValue={totalTeamMembers}
         />
         <NavigateSection />
       </form>
