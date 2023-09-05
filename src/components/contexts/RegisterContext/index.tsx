@@ -10,7 +10,6 @@ import {
   PaymentDataProps,
   RegistrarProps,
 } from 'src/components/modules/RegisterCompetitionModule/interface'
-// import { useRouter } from 'next/navigation'
 
 const RegisterContext = createContext({} as RegisterContextProps)
 
@@ -19,7 +18,6 @@ export const useRegisterContext = () => useContext(RegisterContext)
 export const RegisterContextProvider: React.FC<
   RegisterContextProviderProps
 > = ({ children }) => {
-  //   const router = useRouter()
   const [teamData, setTeamDataState] = useState<teamDataProps | null>(null)
   const [loading, setLoading] = useState<boolean>(false)
   const [success, setSuccess] = useState<boolean>(false)
@@ -69,14 +67,6 @@ export const RegisterContextProvider: React.FC<
       }
 
       const body = new FormData()
-      //   let tyest = {
-      //     jsonFile: JSON.stringify(jsonFile),
-      //     paymentProof: paymentData.paymentProof,
-      //     leaderKTM: leaderData.ktm,
-      //     leaderActive: leaderData.activeStudentProof,
-      //     leader3x4: leaderData.photo,
-      //     leaderTwibbon: leaderData.twibbon,
-      //   }
       body.append('jsonFile', JSON.stringify(jsonFile))
       body.append('paymentProof', paymentData.paymentProof as File)
       body.append('leaderKTM', leaderData.ktm as Blob)
@@ -86,13 +76,6 @@ export const RegisterContextProvider: React.FC<
 
       for (let i = 0; i < membersData.length; i++) {
         const pos = i + 1
-        // body = {
-        //   ...body,
-        //   [`member${pos}KTM`]: membersData[i].ktm,
-        //   [`member${pos}Active`]: membersData[i].activeStudentProof,
-        //   [`member${pos}3x4`]: membersData[i].photo,
-        //   [`member${pos}Twibbon`]: membersData[i].twibbon,
-        // }
         body.append(`member${pos}KTM`, membersData[i].ktm as File)
         body.append(
           `member${pos}Active`,
@@ -102,20 +85,10 @@ export const RegisterContextProvider: React.FC<
         body.append(`member${pos}Twibbon`, membersData[i].twibbon as File)
       }
 
-      // const form = e.target as HTMLFormElement
-
-      // const teamLeader = {
-      //     members: form.
-      // } as teamDataPronullps
-
-      // setTeamDataState({teamLeader:})
-      // router.push('/payment')}
       await fetch(`https://iceeitb-backend.vercel.app/register`, {
         method: 'post',
         body,
       })
-
-      //   const responseJson = response.json()
 
       setSuccess(true)
     } catch (err) {
