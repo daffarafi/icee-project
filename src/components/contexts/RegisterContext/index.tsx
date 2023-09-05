@@ -135,49 +135,90 @@ export const RegisterContextProvider: React.FC<
       }
 
       // console.log(body.get('paymentProof'))
-      const backendUrl = 'https://iceeitb-backend.vercel.app'
-      fetch(`${backendUrl}/register`, { method: 'POST', body: bodyTeam })
-        .then((res) => res.json())
-        .then((resJson) => {
-          const ids = resJson.ids
-          fetch(`${backendUrl}/register/team/${ids.teamId}`, {
-            method: 'POST',
-            body: bodyPayment,
-          }).then(async (res) => {
-            for (let i = 0; i < bodyMembers.length; i++) {
-              try {
-                const memberId = ids.memberIds[i]
-                const resKTM = await fetch(
-                  `${backendUrl}/register/member/ktm/${memberId}`,
-                  { method: 'POST', body: bodyMembers[i].ktm }
-                )
-                console.log(resKTM)
-                const resActive = await fetch(
-                  `${backendUrl}/register/member/aktif/${memberId}`,
-                  { method: 'POST', body: bodyMembers[i].aktif }
-                )
-                console.log(resActive)
-                const resPhoto3x4 = await fetch(
-                  `${backendUrl}/register/member/3x4/${memberId}`,
-                  { method: 'POST', body: bodyMembers[i].photo3x4 }
-                )
-                console.log(resPhoto3x4)
-                const resTwibbon = await fetch(
-                  `${backendUrl}/register/member/twibbon/${memberId}`,
-                  { method: 'POST', body: bodyMembers[i].twibbon }
-                )
-                console.log(resTwibbon)
-              } catch (err) {
-                alert(err)
-              }
-            }
-          })
-        })
-        .catch((err) => {
-          alert(err)
-          setSuccess(false)
-        })
-        .finally(() => setLoading(false))
+      const backendUrl = 'http://localhost:5000'
+      let res = await fetch(`${backendUrl}/register`, {
+        method: 'POST',
+        body: bodyTeam,
+      })
+      let resJson = await res.json()
+      const ids = resJson.ids
+
+      res = await fetch(`${backendUrl}/register/team/${ids.teamId}`, {
+        method: 'POST',
+        body: bodyPayment,
+      })
+
+      for (let i = 0; i < bodyMembers.length; i++) {
+        const memberId = ids.memberIds[i]
+        const resKTM = await fetch(
+          `${backendUrl}/register/member/ktm/${memberId}`,
+          { method: 'POST', body: bodyMembers[i].ktm }
+        )
+        console.log(resKTM)
+        const resActive = await fetch(
+          `${backendUrl}/register/member/aktif/${memberId}`,
+          { method: 'POST', body: bodyMembers[i].aktif }
+        )
+        console.log(resActive)
+        const resPhoto3x4 = await fetch(
+          `${backendUrl}/register/member/3x4/${memberId}`,
+          { method: 'POST', body: bodyMembers[i].photo3x4 }
+        )
+        console.log(resPhoto3x4)
+        const resTwibbon = await fetch(
+          `${backendUrl}/register/member/twibbon/${memberId}`,
+          { method: 'POST', body: bodyMembers[i].twibbon }
+        )
+        console.log(resTwibbon)
+      }
+
+      // fetch(`${backendUrl}/register`, { method: 'POST', body: bodyTeam })
+      //   .then((res) => res.json())
+      //   .then((resJson) => {
+      //     const { teamId, memberIds } = resJson
+      //     console.log(resJson)
+      //     console.log(resJson.teamId)
+      //     console.log(resJson.memberIds)
+      //     console.log(resJson.memberIds[0])
+
+      //     fetch(`${backendUrl}/register/team/${resJson.teamId}`, {
+      //       method: 'POST',
+      //       body: bodyPayment,
+      //     }).then(async (res) => {
+      //       for (let i = 0; i < bodyMembers.length; i++) {
+      //         try {
+      //           const memberId = resJson.memberIds[i]
+      //           const resKTM = await fetch(
+      //             `${backendUrl}/register/member/ktm/${memberId}`,
+      //             { method: 'POST', body: bodyMembers[i].ktm }
+      //           )
+      //           console.log(resKTM)
+      //           const resActive = await fetch(
+      //             `${backendUrl}/register/member/aktif/${memberId}`,
+      //             { method: 'POST', body: bodyMembers[i].aktif }
+      //           )
+      //           console.log(resActive)
+      //           const resPhoto3x4 = await fetch(
+      //             `${backendUrl}/register/member/3x4/${memberId}`,
+      //             { method: 'POST', body: bodyMembers[i].photo3x4 }
+      //           )
+      //           console.log(resPhoto3x4)
+      //           const resTwibbon = await fetch(
+      //             `${backendUrl}/register/member/twibbon/${memberId}`,
+      //             { method: 'POST', body: bodyMembers[i].twibbon }
+      //           )
+      //           console.log(resTwibbon)
+      //         } catch (err) {
+      //           alert(err)
+      //         }
+      //       }
+      //     })
+      //   })
+      //   .catch((err) => {
+      //     alert(err)
+      //     setSuccess(false)
+      //   })
+      //   .finally(() => setLoading(false))
 
       // const response = await fetch(`${backendUrl}/register`, {
       //   method: 'post',
@@ -201,6 +242,7 @@ export const RegisterContextProvider: React.FC<
       // if (responseJson.statusCode !== 201) {
       //   throw new Error(responseJson.message)
       // }
+      setSuccess(true)
     } catch (err: any) {
       alert(err)
 
