@@ -44,6 +44,7 @@ export const PaymentSection: React.FC<PaymentSectionProps> = ({
           value={paymentData.referralCode}
           label="Referral Code"
           id="referralCode"
+          required={false}
         />
         <p>BCA 2820700760 an. Rose Amelie</p>
         <TextInput

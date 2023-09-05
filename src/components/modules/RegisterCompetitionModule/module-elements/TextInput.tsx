@@ -9,6 +9,7 @@ export const TextInput: React.FC<TextInputProps> = ({
   name,
   index,
   type = 'text',
+  required = true,
   setValue,
 }) => {
   const inputHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +33,7 @@ export const TextInput: React.FC<TextInputProps> = ({
         placeholder={placeholder}
         value={value}
         onChange={inputHandler}
-        required
+        required={required}
       />
     </div>
   )

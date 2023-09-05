@@ -50,6 +50,7 @@ export interface TextInputProps extends InputProps {
   value: string | undefined
   placeholder?: string
   type?: 'email' | 'text'
+  required?: boolean
 }
 
 export interface FileInputProps extends InputProps {}
