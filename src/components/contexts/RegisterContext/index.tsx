@@ -110,12 +110,20 @@ export const RegisterContextProvider: React.FC<
 
       // setTeamDataState({teamLeader:})
       // router.push('/payment')}
-      await fetch(`https://iceeitb-backend.vercel.app/register`, {
-        method: 'post',
-        body,
-      })
+      const response = await fetch(
+        `https://iceeitb-backend.vercel.app/register`,
+        {
+          method: 'post',
+          body,
+        }
+      )
 
-      //   const responseJson = response.json()
+      const responseJson = await response.json()
+      if (responseJson.message) {
+        alert(responseJson.message)
+      } else {
+        alert(responseJson.error)
+      }
 
       setSuccess(true)
     } catch (err) {
