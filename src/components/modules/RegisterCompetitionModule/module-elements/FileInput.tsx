@@ -15,7 +15,31 @@ export const FileInput: React.FC<FileInputProps> = ({
       <input
         id={id}
         type={'file'}
-        onChange={setValue}
+        accept="image/*"
+        onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+          const files = e.target.files
+          if (!files) return
+          const file = files[0]
+
+          if (!file) {
+            alert('Mohon masukan file!')
+            e.target.value = ''
+            return
+          }
+
+          if (!file.type.startsWith('image/')) {
+            alert('File harus bertipe gambar.')
+            e.target.value = ''
+            return
+          }
+
+          if (file.size > 2 * 1024 * 1024) {
+            alert('File tidak boleh lebih dari 2 MB.')
+            e.target.value = ''
+            return
+          }
+          setValue(e)
+        }}
         className="w-full"
         name={name}
         required

@@ -10,6 +10,7 @@ import {
   PaymentDataProps,
   RegistrarProps,
 } from 'src/components/modules/RegisterCompetitionModule/interface'
+import { getBase64, getFileNameExt } from '@utils'
 
 const RegisterContext = createContext({} as RegisterContextProps)
 
@@ -68,8 +69,14 @@ export const RegisterContextProvider: React.FC<
 
       const body = new FormData()
       body.append('jsonFile', JSON.stringify(jsonFile))
-      body.append('paymentProof', paymentData.paymentProof as File)
-      body.append('leaderKTM', leaderData.ktm as Blob)
+      body.append(
+        'paymentProof',
+        JSON.stringify({
+          base64: await getBase64(paymentData.paymentProof as File),
+          ext: getFileNameExt(paymentData.paymentProof?.name as string),
+        })
+      )
+      body.append('leaderKTM', leaderData.ktm as File)
       body.append('leaderActive', leaderData.activeStudentProof as File)
       body.append('leader3x4', leaderData.photo as File)
       body.append('leaderTwibbon', leaderData.twibbon as File)
@@ -85,6 +92,7 @@ export const RegisterContextProvider: React.FC<
         body.append(`member${pos}Twibbon`, membersData[i].twibbon as File)
       }
 
+      console.log(body.get('paymentProof'))
       const response = await fetch(
         `https://iceeitb-backend.vercel.app/register`,
         {
@@ -95,12 +103,16 @@ export const RegisterContextProvider: React.FC<
 
       const responseJson = await response.json()
 
+      if (response.status === 413) {
+        throw new Error('Ukuran gambar terlalu besar!')
+      }
+
       if (responseJson.statusCode !== 201) {
         throw new Error(responseJson.message)
       }
       setSuccess(true)
     } catch (err: any) {
-      alert(err.message)
+      alert(err)
 
       setSuccess(false)
     } finally {
