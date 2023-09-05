@@ -17,7 +17,7 @@ export const CompetitionSection: React.FC = () => (
         className="flex flex-col  lg:flex-row justify-center items-center
          mt-5 md:mt-32 mx-2 md:mx-0 md:ml-2 text-center"
       >
-        <div className="flex flex-col gap-4 mt-10 mr-2 md:ml-3 lg:mt-0 md:gap-8 lg:mr-10">
+        {/* <div className="flex flex-col gap-4 mt-10 mr-2 md:ml-3 lg:mt-0 md:gap-8 lg:mr-10">
           <h1 className="font-Sarmandy text-lg  md:text-2xl -mb-2 md:-mb-8 text-center font-extrabold tracking-[0.25em]">
             <GlowingSpan color="blue" className="text-base md:text-lg">
               BCC
@@ -26,7 +26,7 @@ export const CompetitionSection: React.FC = () => (
           <p className="text-[#c6e2de] font-Sarmandy text-xs md:text-base">
             Business Case Competition
           </p>
-        </div>
+        </div> */}
         <div className="flex flex-col mt-10 lg:mt-0 gap-4 md:gap-14 ml-2">
           <h1 className="font-Sarmandy text-4xl md:text-9xl -mb-2 md:-mb-8 text-center font-extrabold tracking-[0.25em]">
             <GlowingSpan color="blue">BRIDGE</GlowingSpan>
@@ -35,7 +35,7 @@ export const CompetitionSection: React.FC = () => (
             Innovative Bridge Design Competition
           </p>
         </div>
-        <div className="flex flex-col  mt-14 lg:mt-0 gap-4 md:gap-8 md:ml-3">
+        {/* <div className="flex flex-col  mt-14 lg:mt-0 gap-4 md:gap-8 md:ml-3">
           <h1 className="font-Sarmandy text-lg md:text-2xl -mb-2 md:-mb-8 text-center font-extrabold tracking-[0.25em]">
             <GlowingSpan color="blue" className="text-base md:text-lg">
               TENDER
@@ -44,7 +44,7 @@ export const CompetitionSection: React.FC = () => (
           <p className="text-[#c6e2de] font-Sarmandy text-xs md:text-base">
             Civil Engineering Competition
           </p>
-        </div>
+        </div> */}
       </div>
     </div>
   </section>
