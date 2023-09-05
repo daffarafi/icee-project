@@ -72,34 +72,119 @@ export const RegisterContextProvider: React.FC<
       body.append(
         'paymentProof',
         JSON.stringify({
-          base64: await getBase64(paymentData.paymentProof as File),
+          base64: (await getBase64(paymentData.paymentProof as File))?.split(
+            ','
+          )[1],
           ext: getFileNameExt(paymentData.paymentProof?.name as string),
+          contentType: (await getBase64(paymentData.paymentProof as File))
+            ?.split(';')[0]
+            .split(':')[1],
         })
       )
-      body.append('leaderKTM', leaderData.ktm as File)
-      body.append('leaderActive', leaderData.activeStudentProof as File)
-      body.append('leader3x4', leaderData.photo as File)
-      body.append('leaderTwibbon', leaderData.twibbon as File)
+      body.append(
+        'leaderKTM',
+        JSON.stringify({
+          base64: (await getBase64(leaderData.ktm as File))?.split(',')[1],
+          ext: getFileNameExt(leaderData.ktm?.name as string),
+          contentType: (await getBase64(leaderData.ktm as File))
+            ?.split(';')[0]
+            .split(':')[1],
+        })
+      )
+      body.append(
+        'leaderActive',
+        JSON.stringify({
+          base64: (
+            await getBase64(leaderData.activeStudentProof as File)
+          )?.split(',')[1],
+          ext: getFileNameExt(leaderData.activeStudentProof?.name as string),
+          contentType: (await getBase64(leaderData.activeStudentProof as File))
+            ?.split(';')[0]
+            .split(':')[1],
+        })
+      )
+      body.append(
+        'leader3x4',
+        JSON.stringify({
+          base64: (await getBase64(leaderData.photo as File))?.split(',')[1],
+          ext: getFileNameExt(leaderData.photo?.name as string),
+          contentType: (await getBase64(leaderData.photo as File))
+            ?.split(';')[0]
+            .split(':')[1],
+        })
+      ) // leaderData.photo as File
+      body.append(
+        'leaderTwibbon',
+        JSON.stringify({
+          base64: (await getBase64(leaderData.twibbon as File))?.split(',')[1],
+          ext: getFileNameExt(leaderData.twibbon?.name as string),
+          contentType: (await getBase64(leaderData.twibbon as File))
+            ?.split(';')[0]
+            .split(':')[1],
+        })
+      ) //leaderData.twibbon as File
 
       for (let i = 0; i < membersData.length; i++) {
         const pos = i + 1
-        body.append(`member${pos}KTM`, membersData[i].ktm as File)
+        body.append(
+          `member${pos}KTM`,
+          JSON.stringify({
+            base64: (await getBase64(membersData[i].ktm as File))?.split(
+              ','
+            )[1],
+            ext: getFileNameExt(membersData[i].ktm?.name as string),
+            contentType: (await getBase64(membersData[i].ktm as File))
+              ?.split(';')[0]
+              .split(':')[1],
+          })
+        ) //membersData[i].ktm as File
         body.append(
           `member${pos}Active`,
-          membersData[i].activeStudentProof as File
+          JSON.stringify({
+            base64: (
+              await getBase64(membersData[i].activeStudentProof as File)
+            )?.split(',')[1],
+            ext: getFileNameExt(
+              membersData[i].activeStudentProof?.name as string
+            ),
+            contentType: (
+              await getBase64(membersData[i].activeStudentProof as File)
+            )
+              ?.split(';')[0]
+              .split(':')[1],
+          })
+        ) //membersData[i].activeStudentProof as File
+        body.append(
+          `member${pos}3x4`,
+          JSON.stringify({
+            base64: (await getBase64(membersData[i].photo as File))?.split(
+              ','
+            )[1],
+            ext: getFileNameExt(membersData[i].photo?.name as string),
+            contentType: (await getBase64(membersData[i].photo as File))
+              ?.split(';')[0]
+              .split(':')[1],
+          })
         )
-        body.append(`member${pos}3x4`, membersData[i].photo as File)
-        body.append(`member${pos}Twibbon`, membersData[i].twibbon as File)
+        body.append(
+          `member${pos}Twibbon`,
+          JSON.stringify({
+            base64: (await getBase64(membersData[i].twibbon as File))?.split(
+              ','
+            )[1],
+            ext: getFileNameExt(membersData[i].twibbon?.name as string),
+            contentType: (await getBase64(membersData[i].twibbon as File))
+              ?.split(';')[0]
+              .split(':')[1],
+          })
+        )
       }
 
       console.log(body.get('paymentProof'))
-      const response = await fetch(
-        `https://iceeitb-backend.vercel.app/register`,
-        {
-          method: 'post',
-          body,
-        }
-      )
+      const response = await fetch(`http://localhost:5000/register`, {
+        method: 'post',
+        body,
+      })
 
       const responseJson = await response.json()
 
