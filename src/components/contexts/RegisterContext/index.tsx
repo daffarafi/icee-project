@@ -21,17 +21,56 @@ export const RegisterContextProvider: React.FC<
   const [success, setSuccess] = useState<boolean>(false)
 
   const setTeamData = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
     try {
-      e.preventDefault()
       setLoading(true)
-      setTeamDataState(null)
+
+      //   const jsonFile = {
+      //     teamName: 'Sipilin',
+      //     competition: 'BCC',
+      //     totalPayment: 10000,
+      //     paymentMethod: 'BCA',
+      //     members: [
+      //       {
+      //         name: 'Budi',
+      //         university: 'Institut Teknologi Bandung',
+      //         major: 'Teknik Sipil',
+      //         WANumber: '08123456789',
+      //         email: 'test@gmail.com',
+      //         address: 'Jalan Sudirman No.4',
+      //         role: 'LEADER',
+      //       },
+      //       {
+      //         name: 'Cheryl',
+      //         university: 'Institut Teknologi Bandung',
+      //         major: 'Teknik Sipil',
+      //         WANumber: '08123456789',
+      //         email: 'test@gmail.com',
+      //         address: 'Jalan Sudirman No.4',
+      //         role: 'MEMBER',
+      //       },
+      //     ],
+      //   }
+
+      //   const body = {
+      //     jsonFile,
+      //     paymentProof: null,
+      //     leaderKTM: null,
+      //     leaderActive: null,
+      //     leader3x4: null,
+      //     leaderTwibbon: null,
+      //     member1KTM: null,
+      //     member1Active: null,
+      //     member13x4: null,
+      //     member1Twibbon: null,
+      //   }
       // const form = e.target as HTMLFormElement
 
       // const teamLeader = {
       //     members: form.
-      // } as teamDataProps
+      // } as teamDataPronullps
 
-      // setTeamDataState({teamLeader:})
+      setTeamDataState(null)
       // router.push('/payment')}
       setSuccess(true)
     } catch (err) {
