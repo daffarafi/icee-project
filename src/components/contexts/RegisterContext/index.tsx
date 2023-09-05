@@ -68,8 +68,6 @@ export const RegisterContextProvider: React.FC<
         members,
       }
 
-      console.log(jsonFile)
-
       const body = new FormData()
       //   let tyest = {
       //     jsonFile: JSON.stringify(jsonFile),
@@ -88,7 +86,6 @@ export const RegisterContextProvider: React.FC<
 
       for (let i = 0; i < membersData.length; i++) {
         const pos = i + 1
-        console.log(membersData[i])
         // body = {
         //   ...body,
         //   [`member${pos}KTM`]: membersData[i].ktm,
@@ -105,7 +102,6 @@ export const RegisterContextProvider: React.FC<
         body.append(`member${pos}Twibbon`, membersData[i].twibbon as File)
       }
 
-      console.log(body)
       // const form = e.target as HTMLFormElement
 
       // const teamLeader = {
@@ -123,7 +119,6 @@ export const RegisterContextProvider: React.FC<
 
       setSuccess(true)
     } catch (err) {
-      console.log(err)
       setSuccess(false)
     } finally {
       setLoading(false)
