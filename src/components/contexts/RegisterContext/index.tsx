@@ -85,14 +85,6 @@ export const RegisterContextProvider: React.FC<
         body.append(`member${pos}Twibbon`, membersData[i].twibbon as File)
       }
 
-      // const form = e.target as HTMLFormElement
-
-      // const teamLeader = {
-      //     members: form.
-      // } as teamDataPronullps
-
-      // setTeamDataState({teamLeader:})
-      // router.push('/payment')}
       const response = await fetch(
         `https://iceeitb-backend.vercel.app/register`,
         {
@@ -102,14 +94,12 @@ export const RegisterContextProvider: React.FC<
       )
 
       const responseJson = await response.json()
-      if (responseJson.message) {
-        alert(responseJson.message)
-      } else {
-        alert(responseJson.error)
+      if (responseJson.statusCode !== 201) {
+        throw new Error(responseJson.message)
       }
-
       setSuccess(true)
-    } catch (err) {
+    } catch (err: any) {
+      alert(err.message)
       setSuccess(false)
     } finally {
       setLoading(false)
