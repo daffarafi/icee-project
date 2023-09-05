@@ -27,8 +27,9 @@ export const NumberSection: React.FC = () => {
   ]
 
   return (
-    <section className="bg-[#2c3531] pt-20 h-[90vh] md:h-[80vh] lg:h-[120vh]">
-      <WavySection color="#1c6c6e" />
+    <section className="bg-[#2c3531] h-[90vh] md:h-[80vh] lg:h-[120vh]">
+      {/* kasih pt-20 ^^ */}
+      {/* <WavySection color="#1c6c6e" /> */}
       <div className="flex bg-[#1c6c6e] flex-col gap-5 sm:gap-10 w-full"></div>
       <div className="px-5 sm:px-10 pt-16 bg-[#1c6c6e] sm:pt-20 w-full h-[120vh]">
         <div className="flex flex-col h-[90vh] m-4">
