@@ -11,7 +11,7 @@ export const RegisterModule: React.FC = () => {
         </span>
         <span className="text-[#c6e2de]">3 Members </span>
       </Link>
-      <Link href={'/register/bcc'} className="flex flex-col items-center group">
+      {/* <Link href={'/register/bcc'} className="flex flex-col items-center group">
         <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
           <GlowingSpan color="blue">BCC</GlowingSpan>
         </span>
@@ -22,7 +22,7 @@ export const RegisterModule: React.FC = () => {
           <GlowingSpan color="blue">TENDER</GlowingSpan>
         </span>
         <span className="text-[#c6e2de]">2-3 Members </span>
-      </Link>
+      </Link> */}
     </section>
   )
 }
