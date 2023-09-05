@@ -140,7 +140,7 @@ export const RegisterContextProvider: React.FC<
         method: 'POST',
         body: bodyTeam,
       })
-      let resJson = await res.json()
+      const resJson = await res.json()
       const ids = resJson.ids
 
       res = await fetch(`${backendUrl}/register/team/${ids.teamId}`, {
