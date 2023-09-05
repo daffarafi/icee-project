@@ -14,7 +14,7 @@ export const HomeModule: React.FC = () => {
         <HeroSection />
         <WavySection color="#1c6c6e" />
         <VisionSection />
-        <EventSection />
+        {/* <EventSection /> */}
         <NumberSection />
         <CompetitionSection />
         <SponsorSection />
