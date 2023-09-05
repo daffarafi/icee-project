@@ -135,7 +135,7 @@ export const RegisterContextProvider: React.FC<
       }
 
       // console.log(body.get('paymentProof'))
-      const backendUrl = 'http://localhost:5000'
+      const backendUrl = 'https://iceeitb-backend.vercel.app'
       let res = await fetch(`${backendUrl}/register`, {
         method: 'POST',
         body: bodyTeam,
