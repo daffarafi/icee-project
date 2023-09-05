@@ -10,7 +10,6 @@ import {
   PaymentDataProps,
   RegistrarProps,
 } from 'src/components/modules/RegisterCompetitionModule/interface'
-import { getBase64, getFileNameExt } from '@utils'
 
 const RegisterContext = createContext({} as RegisterContextProps)
 
@@ -73,10 +72,10 @@ export const RegisterContextProvider: React.FC<
       const bodyPayment = new FormData()
       bodyPayment.append('paymentProof', paymentData.paymentProof as File)
 
-      let bodyRequestForTeam: { [key: string]: FormData } = {
-        bodyTeam,
-        bodyPayment,
-      }
+      // let bodyRequestForTeam: { [key: string]: FormData } = {
+      //   bodyTeam,
+      //   bodyPayment,
+      // }
 
       // LEADER form data
       const bodyLeaderKTM = new FormData()
@@ -105,7 +104,7 @@ export const RegisterContextProvider: React.FC<
       // body.bodyLeaderTwibbon = bodyLeaderTwibbon
 
       for (let i = 0; i < membersData.length; i++) {
-        const pos = i + 1
+        // const pos = i + 1
 
         const bodyKTM = new FormData()
         bodyKTM.append(`memberKTM`, membersData[i].ktm as File)
@@ -152,18 +151,22 @@ export const RegisterContextProvider: React.FC<
                   `${backendUrl}/register/member/ktm/${memberId}`,
                   { method: 'POST', body: bodyMembers[i].ktm }
                 )
+                console.log(resKTM)
                 const resActive = await fetch(
                   `${backendUrl}/register/member/aktif/${memberId}`,
                   { method: 'POST', body: bodyMembers[i].aktif }
                 )
+                console.log(resActive)
                 const resPhoto3x4 = await fetch(
                   `${backendUrl}/register/member/3x4/${memberId}`,
                   { method: 'POST', body: bodyMembers[i].photo3x4 }
                 )
+                console.log(resPhoto3x4)
                 const resTwibbon = await fetch(
                   `${backendUrl}/register/member/twibbon/${memberId}`,
                   { method: 'POST', body: bodyMembers[i].twibbon }
                 )
+                console.log(resTwibbon)
               } catch (err) {
                 alert(err)
               }
