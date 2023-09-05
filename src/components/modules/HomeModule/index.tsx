@@ -1,5 +1,4 @@
 import React from 'react'
-import { EventSection } from './sections/EventSection'
 import { NumberSection } from './sections/NumberSection'
 import { CompetitionSection } from './sections/CompetitionSection'
 import { SponsorSection } from './sections/SponsorSection'

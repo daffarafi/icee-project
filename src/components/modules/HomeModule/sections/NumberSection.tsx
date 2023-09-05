@@ -1,6 +1,5 @@
 import React from 'react'
 import { GlowingSpan } from '@elements'
-import { WavySection } from '../module-elements/WavySection'
 import Slideshow from '../module-elements/Slideshow'
 export const NumberSection: React.FC = () => {
   const slides = [

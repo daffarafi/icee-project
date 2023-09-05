@@ -1,6 +1,6 @@
 'use client'
 
-import React, { FormEvent, createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useState } from 'react'
 import {
   RegisterContextProps,
   RegisterContextProviderProps,
@@ -31,6 +31,7 @@ export const RegisterContextProvider: React.FC<
     membersData: RegistrarProps[],
     paymentData: PaymentDataProps
   ) => {
+    setTeamDataState
     try {
       setLoading(true)
 
@@ -79,11 +80,11 @@ export const RegisterContextProvider: React.FC<
       //     leaderTwibbon: leaderData.twibbon,
       //   }
       body.append('jsonFile', JSON.stringify(jsonFile))
-      body.append('paymentProof', paymentData.paymentProof)
-      body.append('leaderKTM', leaderData.ktm)
-      body.append('leaderActive', leaderData.activeStudentProof)
-      body.append('leader3x4', leaderData.photo)
-      body.append('leaderTwibbon', leaderData.twibbon)
+      body.append('paymentProof', paymentData.paymentProof as File)
+      body.append('leaderKTM', leaderData.ktm as Blob)
+      body.append('leaderActive', leaderData.activeStudentProof as File)
+      body.append('leader3x4', leaderData.photo as File)
+      body.append('leaderTwibbon', leaderData.twibbon as File)
 
       for (let i = 0; i < membersData.length; i++) {
         const pos = i + 1
@@ -95,10 +96,13 @@ export const RegisterContextProvider: React.FC<
         //   [`member${pos}3x4`]: membersData[i].photo,
         //   [`member${pos}Twibbon`]: membersData[i].twibbon,
         // }
-        body.append(`member${pos}KTM`, membersData[i].ktm)
-        body.append(`member${pos}Active`, membersData[i].activeStudentProof)
-        body.append(`member${pos}3x4`, membersData[i].photo)
-        body.append(`member${pos}Tqwibbon`, membersData[i].twibbon)
+        body.append(`member${pos}KTM`, membersData[i].ktm as File)
+        body.append(
+          `member${pos}Active`,
+          membersData[i].activeStudentProof as File
+        )
+        body.append(`member${pos}3x4`, membersData[i].photo as File)
+        body.append(`member${pos}Twibbon`, membersData[i].twibbon as File)
       }
 
       console.log(body)
@@ -110,15 +114,12 @@ export const RegisterContextProvider: React.FC<
 
       // setTeamDataState({teamLeader:})
       // router.push('/payment')}
-      const response = await fetch(
-        `https://iceeitb-backend.vercel.app/register`,
-        {
-          method: 'post',
-          body,
-        }
-      )
+      await fetch(`https://iceeitb-backend.vercel.app/register`, {
+        method: 'post',
+        body,
+      })
 
-      const responseJson = response.json()
+      //   const responseJson = response.json()
 
       setSuccess(true)
     } catch (err) {
