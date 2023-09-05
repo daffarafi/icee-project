@@ -74,7 +74,7 @@ export const InputTeamLeader: React.FC<InputTeamLeaderProps> = ({
       />
       <FileInput
         name="ktm"
-        setValue={leaderInputHandler}
+        setValue={leaderInputFileHandler}
         label="Student ID (KTM)"
         id="leaderKtm"
       />

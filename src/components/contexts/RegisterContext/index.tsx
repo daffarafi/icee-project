@@ -122,7 +122,7 @@ export const RegisterContextProvider: React.FC<
             ?.split(';')[0]
             .split(':')[1],
         })
-      ) //leaderData.twibbon as File
+      ) // leaderData.twibbon as File
 
       for (let i = 0; i < membersData.length; i++) {
         const pos = i + 1
@@ -137,7 +137,7 @@ export const RegisterContextProvider: React.FC<
               ?.split(';')[0]
               .split(':')[1],
           })
-        ) //membersData[i].ktm as File
+        ) // membersData[i].ktm as File
         body.append(
           `member${pos}Active`,
           JSON.stringify({
@@ -153,7 +153,7 @@ export const RegisterContextProvider: React.FC<
               ?.split(';')[0]
               .split(':')[1],
           })
-        ) //membersData[i].activeStudentProof as File
+        ) // membersData[i].activeStudentProof as File
         body.append(
           `member${pos}3x4`,
           JSON.stringify({
