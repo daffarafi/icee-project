@@ -37,7 +37,7 @@ export const PaymentSection: React.FC<PaymentSectionProps> = ({
       <div className="flex px-6 flex-col gap-2">
         <div className="flex gap-2 w-full">
           <span className="lg:w-2/6 whitespace-nowrap">Payment Details : </span>
-          <span className="lg:w-full">Rp.300.000,-</span>
+          <span className="lg:w-full">Rp.225.000,-</span>
         </div>
         <TextInput
           setValue={referralCodeHandler}
@@ -45,6 +45,7 @@ export const PaymentSection: React.FC<PaymentSectionProps> = ({
           label="Referral Code"
           id="referralCode"
         />
+        <p>BCA 2820700760 an. Rose Amelie</p>
         <TextInput
           setValue={paymentMethodHandler}
           value={paymentData.paymentMethod}
