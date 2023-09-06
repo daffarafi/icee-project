@@ -9,7 +9,10 @@ export const FileInput: React.FC<FileInputProps> = ({
 }) => {
   return (
     <div className="flex items-center gap-1 flex-col lg:flex-row w-full">
-      <label htmlFor={id} className="w-2/6 whitespace-nowrap">
+      <label
+        htmlFor={id}
+        className="w-full text-start block lg:w-2/6  whitespace-nowrap"
+      >
         {label}
       </label>
       <div className="w-full flex flex-col">
