@@ -33,8 +33,8 @@ export const FileInput: React.FC<FileInputProps> = ({
             return
           }
 
-          if (file.size > 5 * 1024 * 1024) {
-            alert('File tidak boleh lebih dari 5 MB.')
+          if (file.size > 4 * 1024 * 1024) {
+            alert('File tidak boleh lebih dari 4 MB.')
             e.target.value = ''
             return
           }
