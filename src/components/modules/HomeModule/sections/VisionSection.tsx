@@ -14,27 +14,32 @@ export const VisionSection: React.FC = () => (
         <div className="flex justify-center mt-14 text-center">
           <div className="flex flex-col sm:flex-row justify-center gap-10">
             <div className="flex flex-col gap-8 items-center mt-4 sm:w-1/3">
-              <p className="text-2xl sm:text-3xl px-4">INNOVATE</p>
+              <p className="text-2xl sm:text-3xl px-4">LEARN</p>
               <HiOutlineLightBulb className="text-7xl" />
               <p>
-                INNOVATION is the ability to see change as an opportunity, not a
-                threat.
+                LEARN is a cognitive process of acquiring new knowledge, skills,
+                or understanding, facilitating personal and professional growth.
               </p>
             </div>
 
             <div className="flex flex-col gap-8 items-center mt-4 sm:w-1/3">
-              <p className="text-2xl sm:text-3xl px-4">COLLABORATE</p>
+              <p className="text-2xl sm:text-3xl px-4">INNOVATE</p>
               <AiFillSetting className="text-7xl" />
               <p>
-                Coming together is a beginning, keeping together is a progress,
-                working TOGETHER is success.
+                INNOVATE is to creatively introduce novel ideas, methods, or
+                technologies, fostering positive change and advancement within
+                an organization or industry.
               </p>
             </div>
 
             <div className="flex flex-col gap-8 items-center mt-4 sm:w-1/3">
-              <p className="text-2xl sm:text-3xl px-4">CREATE</p>
+              <p className="text-2xl sm:text-3xl px-4">CONTRIBUTE</p>
               <BsPencilFill className="text-7xl" />
-              <p>Leaders don’t create followers, they CREATE more leaders.</p>
+              <p>
+                CONTRIBUTE means actively and purposefully provide valuable
+                input, resources, or effort toward a particular goal or cause,
+                with the intention of enhancing its success or impact.
+              </p>
             </div>
           </div>
         </div>

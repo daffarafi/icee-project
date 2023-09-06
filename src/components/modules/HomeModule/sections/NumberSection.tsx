@@ -4,24 +4,28 @@ import Slideshow from '../module-elements/Slideshow'
 export const NumberSection: React.FC = () => {
   const slides = [
     <div key={0} className="flex flex-col gap-4">
-      <p className="text-5xl">13000+</p>
-      <p>POTENCIAL AUDIENCES</p>
+      <p className="text-5xl">495</p>
+      <p>Group Participants</p>
     </div>,
     <div key={1} className="flex flex-col gap-4">
-      <p className="text-5xl">13000+</p>
-      <p>SPONSOR AND MEDIA PARTNER</p>
+      <p className="text-5xl">2095</p>
+      <p>National Seminar Participants</p>
     </div>,
     <div key={2} className="flex flex-col gap-4">
-      <p className="text-5xl">13000+</p>
-      <p>COMPETITION PARTICIPANT</p>
+      <p className="text-5xl">1800+</p>
+      <p>Workshop Participants</p>
     </div>,
     <div key={3} className="flex flex-col gap-4">
-      <p className="text-5xl">13000+</p>
-      <p>EVENT PARTICIPANT</p>
+      <p className="text-5xl">9000+</p>
+      <p>Total Participants</p>
     </div>,
     <div key={4} className="flex flex-col gap-4">
-      <p className="text-5xl">13000+</p>
-      <p>STAFF PARTICIPATED</p>
+      <p className="text-5xl">4372</p>
+      <p>Expo Participants</p>
+    </div>,
+    <div key={5} className="flex flex-col gap-4">
+      <p className="text-5xl">300+</p>
+      <p>Conference Participants</p>
     </div>,
   ]
 

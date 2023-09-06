@@ -1,5 +1,7 @@
 import { RegisterContextProvider } from '@contexts'
 import './globals.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import type { Metadata } from 'next'
 import { Footer, Navbar } from '@elements'
 import { Toaster } from 'react-hot-toast'
