@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export const TeamRegistrationSection: React.FC<
   TeamRegistrationSectionProps
-> = ({ teamName, setTeamName, totalTeamMembers }) => {
+> = ({ teamName, setTeamName, totalTeamMembers, TORLink }) => {
   const setValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTeamName(e.target.value)
   }
@@ -17,7 +17,7 @@ export const TeamRegistrationSection: React.FC<
         *Silahkan cek{' '}
         <Link
           className="text-blue-400 underline"
-          href={'https://bit.ly/TORUmumIBDCICEE2024'}
+          href={TORLink}
           target="_blank"
         >
           link ini

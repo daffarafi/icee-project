@@ -92,6 +92,15 @@ export const RegisterCompetitionModule: React.FC<
     )
   }
 
+  let TORLink = ''
+  if (competitionType == 'bcc') {
+    TORLink = 'https://bit.ly/TORUmumBCCICEE2024'
+  } else if (competitionType == 'bridge') {
+    TORLink = 'https://bit.ly/TORUmumIBDCICEE2024'
+  } else if (competitionType == 'tender') {
+    TORLink = 'http://bit.ly/TORUmumCETCICEE2024'
+  }
+
   if (success) return <Thanks />
 
   return (
@@ -114,6 +123,7 @@ export const RegisterCompetitionModule: React.FC<
           setTeamName={setTeamName}
           teamName={teamName}
           totalTeamMembers={totalTeamMembers}
+          TORLink={TORLink}
         />
         <TeamMemberRegistrationSection
           competitionType={competitionType}

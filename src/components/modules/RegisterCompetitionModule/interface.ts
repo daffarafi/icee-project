@@ -16,6 +16,7 @@ export interface membersDataProps {
 export interface TeamRegistrationSectionProps extends totalTeamMembers {
   teamName: string
   setTeamName: (value: string) => void
+  TORLink: string
 }
 
 export interface InputTeamLeaderProps {
