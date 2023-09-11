@@ -116,6 +116,12 @@ export const InputTeamMember: React.FC<InputTeamMemberProps> = ({
         id={`member${index + 1}Photo`}
       />
       <FileInput
+        name="instagram"
+        setValue={memberInputFileHandler}
+        label={`Bukti Follow Instagram ICEE ITB`}
+        id={`member${index + 1}FollowInstagram`}
+      />
+      <FileInput
         name="twibbon"
         setValue={memberInputFileHandler}
         label={`Twibbon`}

@@ -66,6 +66,7 @@ export interface RegistrarProps {
   ktm: File | null
   activeStudentProof: File | null
   photo: File | null
+  instagram: File | null
   twibbon: File | null
 }
 

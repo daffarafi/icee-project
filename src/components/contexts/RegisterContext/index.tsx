@@ -87,6 +87,11 @@ export const RegisterContextProvider: React.FC<
       )
       const bodyLeader3x4 = new FormData()
       bodyLeader3x4.append('member3x4', leaderData.photo as File)
+      const bodyLeaderFollowInstagram = new FormData()
+      bodyLeaderFollowInstagram.append(
+        'memberFollowInstagram',
+        leaderData.instagram as File
+      )
       const bodyLeaderTwibbon = new FormData()
       bodyLeaderTwibbon.append('memberTwibbon', leaderData.twibbon as File)
 
@@ -95,6 +100,7 @@ export const RegisterContextProvider: React.FC<
           ktm: bodyLeaderKTM,
           aktif: bodyLeaderActive,
           photo3x4: bodyLeader3x4,
+          instagram: bodyLeaderFollowInstagram,
           twibbon: bodyLeaderTwibbon,
         },
       ]
@@ -115,6 +121,11 @@ export const RegisterContextProvider: React.FC<
         )
         const body3x4 = new FormData()
         body3x4.append(`member3x4`, membersData[i].photo as File)
+        const bodyFollowInstagram = new FormData()
+        bodyFollowInstagram.append(
+          `memberFollowInstagram`,
+          membersData[i].instagram as File
+        )
         const bodyTwibbon = new FormData()
         bodyTwibbon.append(`memberTwibbon`, membersData[i].twibbon as File)
 
@@ -122,6 +133,7 @@ export const RegisterContextProvider: React.FC<
           ktm: bodyKTM,
           aktif: bodyActive,
           photo3x4: body3x4,
+          instagram: bodyFollowInstagram,
           twibbon: bodyTwibbon,
         }
         bodyMembers.push(bodyMember)
@@ -165,6 +177,11 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].photo3x4 }
         )
         console.log(resPhoto3x4)
+        const resFollowInstagram = await fetch(
+          `${backendUrl}/register/member/instagram/${memberId}`,
+          { method: 'POST', body: bodyMembers[i].instagram }
+        )
+        console.log(resFollowInstagram)
         const resTwibbon = await fetch(
           `${backendUrl}/register/member/twibbon/${memberId}`,
           { method: 'POST', body: bodyMembers[i].twibbon }
