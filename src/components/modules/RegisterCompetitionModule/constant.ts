@@ -8,6 +8,7 @@ export const EMPTY_REGISTRAR_DATA = {
   ktm: null,
   photo: null,
   activeStudentProof: null,
+  instagram: null,
   twibbon: null,
 }
 
