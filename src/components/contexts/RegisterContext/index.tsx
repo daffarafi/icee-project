@@ -158,6 +158,9 @@ export const RegisterContextProvider: React.FC<
         throw new Error(resJson.message)
       }
       const ids = resJson.ids
+      if (!ids) {
+        throw new Error('Failed to save team.')
+      }
 
       res = await fetch(`${backendUrl}/register/team/${ids.teamId}`, {
         method: 'POST',
