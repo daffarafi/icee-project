@@ -93,7 +93,7 @@ export const InputTeamLeader: React.FC<InputTeamLeaderProps> = ({
       <FileInput
         setValue={leaderInputFileHandler}
         name="instagram"
-        label="Bukti Follow Instagram ICEE ITB"
+        label="Follow Instagram ICEE ITB"
         id="leaderFollowInstagram"
       />
       <FileInput

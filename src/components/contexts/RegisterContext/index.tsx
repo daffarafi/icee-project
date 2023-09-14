@@ -147,18 +147,27 @@ export const RegisterContextProvider: React.FC<
       }
 
       // console.log(body.get('paymentProof'))
+      const errorStatus: number[] = [400, 404, 406, 500, 409]
       const backendUrl = 'https://iceeitb-backend.vercel.app'
       let res = await fetch(`${backendUrl}/register`, {
         method: 'POST',
         body: bodyTeam,
       })
-      const resJson = await res.json()
+      let resJson = await res.json()
+      if (errorStatus.includes(resJson.statusCode)) {
+        throw new Error(resJson.message)
+      }
       const ids = resJson.ids
 
       res = await fetch(`${backendUrl}/register/team/${ids.teamId}`, {
         method: 'POST',
         body: bodyPayment,
       })
+
+      resJson = await res.json()
+      if (errorStatus.includes(resJson.statusCode)) {
+        throw new Error(resJson.message)
+      }
 
       for (let i = 0; i < bodyMembers.length; i++) {
         const memberId = ids.memberIds[i]
@@ -167,26 +176,50 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].ktm }
         )
         console.log(resKTM)
+        resJson = await res.json()
+        if (errorStatus.includes(resJson.statusCode)) {
+          throw new Error(resJson.message)
+        }
+
         const resActive = await fetch(
           `${backendUrl}/register/member/aktif/${memberId}`,
           { method: 'POST', body: bodyMembers[i].aktif }
         )
         console.log(resActive)
+        resJson = await res.json()
+        if (errorStatus.includes(resJson.statusCode)) {
+          throw new Error(resJson.message)
+        }
+
         const resPhoto3x4 = await fetch(
           `${backendUrl}/register/member/3x4/${memberId}`,
           { method: 'POST', body: bodyMembers[i].photo3x4 }
         )
         console.log(resPhoto3x4)
+        resJson = await res.json()
+        if (errorStatus.includes(resJson.statusCode)) {
+          throw new Error(resJson.message)
+        }
+
         const resFollowInstagram = await fetch(
           `${backendUrl}/register/member/instagram/${memberId}`,
           { method: 'POST', body: bodyMembers[i].instagram }
         )
         console.log(resFollowInstagram)
+        resJson = await res.json()
+        if (errorStatus.includes(resJson.statusCode)) {
+          throw new Error(resJson.message)
+        }
+
         const resTwibbon = await fetch(
           `${backendUrl}/register/member/twibbon/${memberId}`,
           { method: 'POST', body: bodyMembers[i].twibbon }
         )
         console.log(resTwibbon)
+        resJson = await res.json()
+        if (errorStatus.includes(resJson.statusCode)) {
+          throw new Error(resJson.message)
+        }
       }
 
       // fetch(`${backendUrl}/register`, { method: 'POST', body: bodyTeam })
