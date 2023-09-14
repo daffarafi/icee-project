@@ -176,7 +176,7 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].ktm }
         )
         console.log(resKTM)
-        resJson = await res.json()
+        resJson = await resKTM.json()
         if (errorStatus.includes(resJson.statusCode)) {
           throw new Error(resJson.message)
         }
@@ -186,7 +186,7 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].aktif }
         )
         console.log(resActive)
-        resJson = await res.json()
+        resJson = await resActive.json()
         if (errorStatus.includes(resJson.statusCode)) {
           throw new Error(resJson.message)
         }
@@ -196,7 +196,7 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].photo3x4 }
         )
         console.log(resPhoto3x4)
-        resJson = await res.json()
+        resJson = await resPhoto3x4.json()
         if (errorStatus.includes(resJson.statusCode)) {
           throw new Error(resJson.message)
         }
@@ -206,7 +206,7 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].instagram }
         )
         console.log(resFollowInstagram)
-        resJson = await res.json()
+        resJson = await resFollowInstagram.json()
         if (errorStatus.includes(resJson.statusCode)) {
           throw new Error(resJson.message)
         }
@@ -216,7 +216,7 @@ export const RegisterContextProvider: React.FC<
           { method: 'POST', body: bodyMembers[i].twibbon }
         )
         console.log(resTwibbon)
-        resJson = await res.json()
+        resJson = await resTwibbon.json()
         if (errorStatus.includes(resJson.statusCode)) {
           throw new Error(resJson.message)
         }
