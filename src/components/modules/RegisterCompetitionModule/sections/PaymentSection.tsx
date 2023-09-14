@@ -6,6 +6,7 @@ import { PaymentSectionProps } from '../interface'
 export const PaymentSection: React.FC<PaymentSectionProps> = ({
   paymentData,
   setPaymentData,
+  price,
 }) => {
   const referralCodeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentData((paymentData) => ({
@@ -37,7 +38,7 @@ export const PaymentSection: React.FC<PaymentSectionProps> = ({
       <div className="flex px-6 flex-col gap-2">
         <div className="flex gap-2 w-full">
           <span className="lg:w-2/6 whitespace-nowrap">Payment Details : </span>
-          <span className="lg:w-full">Rp.225.000,-</span>
+          <span className="lg:w-full">Rp.{price},-</span>
         </div>
         <TextInput
           setValue={referralCodeHandler}

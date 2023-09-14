@@ -57,10 +57,15 @@ export const RegisterContextProvider: React.FC<
         })
       }
 
+      let totalPayment = 225000
+      if (competition.toUpperCase() == 'BRIDGE') {
+        totalPayment = 300000
+      }
+
       const jsonFile = {
         teamName: teamName,
         competition: competition.toUpperCase(),
-        totalPayment: 225000,
+        totalPayment,
         paymentMethod: paymentData.paymentMethod,
         referralCode: paymentData.referralCode,
         members,

@@ -93,12 +93,16 @@ export const RegisterCompetitionModule: React.FC<
   }
 
   let TORLink = ''
+  let priceStr = ''
   if (competitionType == 'bcc') {
     TORLink = 'https://bit.ly/TORUmumBCCICEE2024'
+    priceStr = '225.000'
   } else if (competitionType == 'bridge') {
     TORLink = 'https://bit.ly/TORUmumIBDCICEE2024'
+    priceStr = '300.000'
   } else if (competitionType == 'tender') {
     TORLink = 'http://bit.ly/TORUmumCETCICEE2024'
+    priceStr = '225.000'
   }
 
   if (success) return <Thanks />
@@ -138,6 +142,7 @@ export const RegisterCompetitionModule: React.FC<
         <PaymentSection
           paymentData={paymentData}
           setPaymentData={setPaymentData}
+          price={priceStr}
         />
         <input
           type="text"

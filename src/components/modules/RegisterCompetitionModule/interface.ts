@@ -73,6 +73,7 @@ export interface RegistrarProps {
 export interface PaymentSectionProps {
   paymentData: PaymentDataProps
   setPaymentData: React.Dispatch<React.SetStateAction<PaymentDataProps>>
+  price: string
 }
 
 export interface PaymentDataProps {
