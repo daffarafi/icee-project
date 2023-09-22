@@ -74,6 +74,7 @@ export interface PaymentSectionProps {
   paymentData: PaymentDataProps
   setPaymentData: React.Dispatch<React.SetStateAction<PaymentDataProps>>
   setShowQRCode: React.Dispatch<React.SetStateAction<boolean>>
+  price: string
 }
 
 export interface PaymentDataProps {
