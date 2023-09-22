@@ -16,6 +16,8 @@ import {
   Thanks,
 } from './sections'
 import { useRegisterContext } from '@contexts'
+import Image from 'next/image'
+import { Plus } from '@icons'
 
 export const RegisterCompetitionModule: React.FC<
   RegisterCompetitionModuleProps
@@ -28,6 +30,8 @@ export const RegisterCompetitionModule: React.FC<
   const [leaderData, setLeaderData] = useState<RegistrarProps>(
     teamData ? teamData.teamLeader : EMPTY_REGISTRAR_DATA
   )
+
+  const [showQRCode, setShowQRCode] = useState<boolean>(false)
 
   const [totalTeamMembers, setTotalTeamMembers] = useState<number>(
     teamData
@@ -138,6 +142,7 @@ export const RegisterCompetitionModule: React.FC<
         <PaymentSection
           paymentData={paymentData}
           setPaymentData={setPaymentData}
+          setShowQRCode={setShowQRCode}
         />
         <input
           type="text"
@@ -156,6 +161,22 @@ export const RegisterCompetitionModule: React.FC<
       {loading && (
         <div className="fixed top-0 left-0 bg-white/40 w-screen h-screen flex justify-center items-center">
           <div className="w-20 h-20  rounded-full border-8 border-gray-700 border-l-transparent animate-spin" />
+        </div>
+      )}
+      {showQRCode && (
+        <div
+          onClick={() => setShowQRCode(false)}
+          className="fixed z-20 top-0 left-0 w-full h-full flex justify-center items-center "
+        >
+          <div className="absolute top-0 left-0 w-full h-full  bg-black/40" />
+          <div className="absolute w-full max-w-2xl px-10 h-full max-h-[30rem]">
+            <Image
+              fill
+              src={'/qr.jpg'}
+              alt="QR Code"
+              className="object-contain "
+            />
+          </div>
         </div>
       )}
     </div>

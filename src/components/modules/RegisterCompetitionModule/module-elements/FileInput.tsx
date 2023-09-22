@@ -41,7 +41,7 @@ export const FileInput: React.FC<FileInputProps> = ({
             }
             setValue(e)
           }}
-          className="w-fit"
+          className="w-full"
           name={name}
           required
         />

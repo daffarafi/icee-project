@@ -6,6 +6,7 @@ import { PaymentSectionProps } from '../interface'
 export const PaymentSection: React.FC<PaymentSectionProps> = ({
   paymentData,
   setPaymentData,
+  setShowQRCode,
 }) => {
   const referralCodeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     setPaymentData((paymentData) => ({
@@ -46,7 +47,21 @@ export const PaymentSection: React.FC<PaymentSectionProps> = ({
           id="referralCode"
           required={false}
         />
-        <p>BCA 2820700760 an. Rose Amelie</p>
+        <div className="flex items-center gap-2 my-2 w-full">
+          <span>
+            Pembayaran melalui BCA 2820700760 an. Rose Amelie atau melalui{' '}
+          </span>
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              setShowQRCode(true)
+            }}
+          >
+            <span className="block bg-green-500 py-1 px-2.5 rounded-md font-semibold">
+              QRCode
+            </span>
+          </button>
+        </div>
         <TextInput
           setValue={paymentMethodHandler}
           value={paymentData.paymentMethod}
