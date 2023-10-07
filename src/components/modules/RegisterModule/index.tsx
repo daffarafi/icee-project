@@ -1,3 +1,4 @@
+'use client'
 import { GlowingSpan } from '@elements'
 import Link from 'next/link'
 import React from 'react'
@@ -8,12 +9,15 @@ export const RegisterModule: React.FC = () => {
 
   return (
     <section className="flex flex-col gap-10 justify-center items-center min-h-screen py-44">
-      <Link href={gformLink} className="flex flex-col items-center">
+      <button
+        onClick={() => alert('Pendaftaran Bridge Sudah Ditutup!')}
+        className="flex flex-col items-center"
+      >
         <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
           <GlowingSpan color="blue">BRIDGE</GlowingSpan>
         </span>
         <span className="text-[#c6e2de]">3 Members </span>
-      </Link>
+      </button>
       <Link href={gformLink} className="flex flex-col items-center group">
         <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
           <GlowingSpan color="blue">BCC</GlowingSpan>
