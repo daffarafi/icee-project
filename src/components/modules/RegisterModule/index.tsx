@@ -18,18 +18,26 @@ export const RegisterModule: React.FC = () => {
         </span>
         <span className="text-[#c6e2de]">3 Members </span>
       </button>
-      <Link href={gformLink} className="flex flex-col items-center group">
+
+      <button
+        onClick={() => alert('Pendaftaran BCC Sudah Ditutup!')}
+        className="flex flex-col items-center group"
+      >
         <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
           <GlowingSpan color="blue">BCC</GlowingSpan>
         </span>
         <span className="text-[#c6e2de]">3-4 Members</span>
-      </Link>
-      <Link href={gformLink} className="flex flex-col items-center">
+      </button>
+
+      <button
+        onClick={() => alert('Pendaftaran Tender Sudah Ditutup!')}
+        className="flex flex-col items-center"
+      >
         <span className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl mb-2 font-Sarmandy tracking-[0.2em] font-extrabold">
           <GlowingSpan color="blue">TENDER</GlowingSpan>
         </span>
         <span className="text-[#c6e2de]">2-3 Members </span>
-      </Link>
+      </button>
     </section>
   )
 }
