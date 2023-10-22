@@ -1,11 +1,11 @@
 'use client'
 import { GlowingSpan } from '@elements'
-import Link from 'next/link'
+// import Link from 'next/link'
 import React from 'react'
 
 export const RegisterModule: React.FC = () => {
-  const gformLink =
-    'https://docs.google.com/forms/d/e/1FAIpQLSdo2LLV8ghvtoF64cgUHFLiM1aiMjNrGHmGjwJ5tJ6Yfl__4w/viewform'
+  //   const gformLink =
+  //     'https://docs.google.com/forms/d/e/1FAIpQLSdo2LLV8ghvtoF64cgUHFLiM1aiMjNrGHmGjwJ5tJ6Yfl__4w/viewform'
 
   return (
     <section className="flex flex-col gap-10 justify-center items-center min-h-screen py-44">
